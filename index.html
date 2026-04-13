@@ -4,8 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>グラビティ株式会社 | 採用情報</title>
-  <!-- [1] ターゲット表現を微経験・キャリアチェンジまで拡張 -->
-  <meta name="description" content="製造業・組込・制御・ハードウェア領域に特化した技術集団。微経験・キャリアチェンジ・第二新卒歓迎。現場で使われる技術を、長く積み上げる。" />
+  <meta name="description" content="私たちは先端技術を追い続け、社会課題を解決することを目指す技術集団です。エンジニアが心からワクワクし、豊かな経験を得られるような環境を提供し続けます。" />
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -70,9 +69,9 @@
     /* [10] 深いグリーン寄りの暗色オーバーレイへ調整 */
     #hero {
       background:
-        linear-gradient(160deg, rgba(47,107,93,0.05) 0%, rgba(244,247,243,0.62) 52%, rgba(244,247,243,0.8) 100%),
-        linear-gradient(0deg, rgba(244,247,243,0.92) 0%, rgba(244,247,243,0.72) 55%, rgba(244,247,243,0.96) 100%),
-        url('https://images.unsplash.com/photo-1518770660439-4636190af475?w=1600&q=80') center/cover no-repeat;
+        linear-gradient(160deg, rgba(47,107,93,0.14) 0%, rgba(244,247,243,0.76) 48%, rgba(244,247,243,0.9) 100%),
+        linear-gradient(0deg, rgba(244,247,243,0.94) 0%, rgba(244,247,243,0.66) 52%, rgba(244,247,243,0.96) 100%),
+        url('images/recruit-mainvis-slider4.jpg') center/cover no-repeat;
       min-height: 100vh;
       min-height: 100svh;
       min-height: 100dvh;
@@ -177,6 +176,63 @@
       opacity: 0.85;
     }
 
+    .vision-band {
+      background: rgba(255,255,255,0.9);
+      border: 1px solid rgba(47,107,93,0.14);
+      border-radius: 8px;
+      padding: 1rem 1.1rem;
+      max-width: 48rem;
+      box-shadow: 0 10px 24px rgba(33,51,45,0.06);
+    }
+
+    .vision-band-en {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.74rem;
+      letter-spacing: 0.12em;
+      color: #3f7f6f;
+      margin-bottom: 0.45rem;
+    }
+
+    .vision-band-ja {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.6;
+      color: #21332d;
+      margin-bottom: 0.5rem;
+    }
+
+    .vision-band-copy {
+      font-size: 0.84rem;
+      line-height: 1.8;
+      color: #66766f;
+    }
+
+    .data-graphic {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+      border: 1px solid rgba(47,107,93,0.08);
+      background: #ffffff;
+    }
+
+    .career-visual-card {
+      background: rgba(255,255,255,0.96);
+      border: 1px solid rgba(47,107,93,0.12);
+      border-radius: 8px;
+      padding: 1rem;
+    }
+
+    .career-visual-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      color: #3f7f6f;
+      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+    }
+
     /* ─── Badge ─────────────────────────────────────── */
     .badge {
       display: inline-flex; align-items: center;
@@ -260,16 +316,19 @@
       color: #2f6b5d;
     }
 
-    /* ─── Story card photo placeholder ─────────────── */
-    .photo-placeholder {
-      width: 56px; height: 56px; border-radius: 50%;
-      background: linear-gradient(135deg, #d9e5df, rgba(63,127,111,0.1));
-      border: 1px solid rgba(47,107,93,0.12);
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Noto Serif JP', serif;
-      font-size: 1.1rem; font-weight: 700;
-      color: #2f6b5d;
-      flex-shrink: 0;
+    .brand-mark {
+      height: 28px;
+      width: auto;
+      display: block;
+    }
+
+    .story-thumb {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 8px;
+      display: block;
+      margin-bottom: 1.25rem;
     }
 
     /* [10] ストーリー内も浮かないように抑えたセージ色 */
@@ -384,9 +443,8 @@
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
       <div class="flex items-center justify-between h-16">
 
-        <!-- ロゴ [6] Noto Serif JP -->
-        <a href="#" class="heading-serif text-xl tracking-widest text-white hover:text-g-blue-lt transition-colors">
-          GRAVITY
+        <a href="#" aria-label="グラビティ株式会社" class="shrink-0">
+          <img src="images/company-name-header.png" alt="GRAVITY" class="brand-mark" />
         </a>
 
         <!-- Desktop nav -->
@@ -449,29 +507,29 @@
   <section id="hero" class="relative flex flex-col justify-center">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 pt-28 pb-20 md:pt-40 md:pb-32">
 
-      <!-- [2] バッジ：微経験者・キャリアチェンジを前面に -->
-      <div class="fade-up mb-5 flex flex-wrap gap-2">
-        <span class="badge">微経験者歓迎</span>
-        <span class="badge">キャリアチェンジ歓迎</span>
+      <div class="fade-up mb-4">
+        <div class="section-label mb-2">Recruit</div>
+        <div class="accent-line"></div>
       </div>
 
-      <!-- [6] Noto Serif JP 見出し。サイズも落ち着かせる -->
       <h1 class="fade-up heading-serif text-4xl sm:text-5xl md:text-6xl leading-tight mb-5"
           style="transition-delay:0.1s">
-        ハードウェアが動く瞬間に、<br/>
-        <span style="color:#3f7f6f">関わっている。</span>
+        あなたは<br/>
+        どの技術分野、<br/>
+        どんな役割でチームに<br/>
+        参加したいですか
       </h1>
 
       <p class="fade-up text-base sm:text-lg text-g-light font-body font-light leading-relaxed mb-3 max-w-2xl"
          style="transition-delay:0.2s">
-        製造業・組込・制御の現場で使われる技術を、長く積み上げる。
+        常にやりたいことに挑戦する<br/>
+        そんな技術者でいてほしい
       </p>
 
-      <!-- [1] ターゲット説明を拡張 -->
       <p class="fade-up text-sm text-g-muted max-w-xl leading-relaxed mb-10"
          style="transition-delay:0.3s">
-        学生時代や前職で触れた技術を、次の実務経験につなげたい方を継続的に採用しています。
-        微経験者や異分野からのキャリアチェンジなど、基礎を持った方が専門性を積み上げていける環境です。
+        私たちは先端技術を追い続け、社会課題を解決することを目指す技術集団です。
+        エンジニアが心からワクワクし、豊かな経験を得られるような環境を提供し続けます。
       </p>
 
       <!-- CTA Buttons -->
@@ -485,6 +543,14 @@
            target="_blank" rel="noopener" class="btn-ghost text-base">
           話だけ聞いてみる（カジュアル面談）
         </a>
+      </div>
+
+      <div class="fade-up mt-8" style="transition-delay:0.48s">
+        <div class="vision-band">
+          <div class="vision-band-en">Unique Tech Journey</div>
+          <div class="vision-band-ja">〜　技術のキセキを楽しもう　〜</div>
+          <p class="vision-band-copy">時を重ね築いた技術の軌跡を追い、新たなテクノロジーの奇跡に出会う喜びを</p>
+        </div>
       </div>
 
       <!-- [8] ファクト帯：上ボーダーで分離、色を落として存在感を抑制 -->
@@ -535,32 +601,31 @@
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
         <div class="card p-6 md:p-8 fade-up" style="transition-delay:0.05s">
-          <div class="text-3xl mb-4">⚙️</div>
-          <div class="section-label mb-2">01</div>
-          <h3 class="text-white font-bold text-base mb-3">現場で使われる技術だけを扱う</h3>
+          <div class="text-3xl mb-4">📝</div>
+          <div class="section-label mb-2">Message</div>
+          <h3 class="text-g-light font-bold text-base mb-3">常にやりたいことに挑戦する<br/>そんな技術者でいてほしい</h3>
           <p class="text-g-muted text-sm leading-relaxed">
-            製造業の最前線で実際に動く技術領域──組込・制御・ハードウェアに特化。
-            身につけた技術は、現場で確実に機能する。
+            グラビティでは、技術者が「今、何をやりたいのか」「今後どうなっていきたいのか」を重要視しています。
           </p>
         </div>
 
         <div class="card p-6 md:p-8 fade-up" style="transition-delay:0.12s">
-          <div class="text-3xl mb-4">📈</div>
-          <div class="section-label mb-2">02</div>
-          <h3 class="text-white font-bold text-base mb-3">長く積み上がるキャリア設計</h3>
+          <div class="text-3xl mb-4">🎓</div>
+          <div class="section-label mb-2">Education</div>
+          <h3 class="text-g-light font-bold text-base mb-3">教育制度</h3>
           <p class="text-g-muted text-sm leading-relaxed">
-            単発で消費されるスキルではなく、長期プロジェクトを通じて技術が体系化される。
-            3年後・5年後に「何ができるか」が明確に描ける。
+            技術研修や資格取得をはじめ、グラビティにはエンジニアのスキルアップを支援する制度があります。
+            ■チーム勉強会　■クロスオーバー　■資格取得支援　■リーダー研修
           </p>
         </div>
 
         <div class="card p-6 md:p-8 fade-up" style="transition-delay:0.2s">
-          <div class="text-3xl mb-4">🎓</div>
-          <div class="section-label mb-2">03</div>
-          <h3 class="text-white font-bold text-base mb-3">着実に力がつく環境</h3>
+          <div class="text-3xl mb-4">📈</div>
+          <div class="section-label mb-2">Career Path</div>
+          <h3 class="text-g-light font-bold text-base mb-3">キャリア形成</h3>
           <p class="text-g-muted text-sm leading-relaxed">
-            OJT・社内研修・資格取得支援・書籍購入補助を通じて、
-            経験が浅い段階から実務に必要な知識を整理しながら積み上げていける。
+            グラビティは、社員一人ひとりの成長を尊重し、持続可能なキャリアの発展を支援します。
+            等級4以降は、マネジメント・ビジネスコースまたはエキスパートコースを自由に選択することができます。
           </p>
         </div>
 
@@ -856,6 +921,15 @@
         </div>
       </div>
 
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+        <div class="card p-4 fade-up" style="transition-delay:0.12s">
+          <img src="images/env_graph_02_2.jpg" alt="職種構成のグラフ" class="data-graphic" />
+        </div>
+        <div class="card p-4 fade-up" style="transition-delay:0.18s">
+          <img src="images/env_graph_01_2.jpg" alt="年齢構成のグラフ" class="data-graphic" />
+        </div>
+      </div>
+
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         <div class="card p-4 flex items-center gap-3 fade-up" style="transition-delay:0.00s">
           <div class="text-g-blue">✓</div><span class="text-g-light text-sm">社会保険完備（健・厚・雇・労）</span>
@@ -912,6 +986,21 @@
           微経験や隣接領域からの転身でも、任される範囲は段階的に広がっていく。
           1・3・5・10年目の姿を具体的に描ける。
         </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-12">
+        <div class="career-visual-card fade-up" style="transition-delay:0.04s">
+          <div class="career-visual-label">Education</div>
+          <img src="images/illustration_education.jpg" alt="教育制度の図版" class="data-graphic" />
+        </div>
+        <div class="career-visual-card fade-up" style="transition-delay:0.1s">
+          <div class="career-visual-label">Grade Up</div>
+          <img src="images/illustration_gradeup2.jpg" alt="昇格イメージの図版" class="data-graphic" />
+        </div>
+        <div class="career-visual-card fade-up" style="transition-delay:0.16s">
+          <div class="career-visual-label">Career Course</div>
+          <img src="images/illustration_career-course2.jpg" alt="キャリアコースの図版" class="data-graphic" />
+        </div>
       </div>
 
       <div class="max-w-2xl space-y-12">
@@ -995,98 +1084,77 @@
         <div class="section-label mb-2">Engineers' Voice</div>
         <div class="accent-line"></div>
         <h2 class="heading-serif text-2xl sm:text-3xl md:text-4xl mb-2">
-          エンジニアのリアルな声
+          社員インタビュー
         </h2>
-        <p class="text-g-muted text-sm">前職・最初の壁・任されるようになった転換点。そのままを聞きました。</p>
+        <p class="text-g-muted text-sm">現行の社員インタビューから一部を掲載しています。</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
-        <!-- Story 1 [9] 4段構成 -->
         <div class="card p-6 fade-up" style="transition-delay:0.05s">
+          <img src="images/interview-list02-2.jpg" alt="五十嵐さん" class="story-thumb" />
           <div class="flex items-center gap-4 mb-5">
-            <div class="photo-placeholder">A</div>
             <div>
-              <div class="text-white font-bold text-sm">Aさん</div>
-              <div class="text-g-muted text-xs">入社3年目 / エンベデッド・制御</div>
+              <div class="text-g-light font-bold text-sm">後輩の成長が自分を変えました</div>
+              <div class="text-g-muted text-xs">技術基盤推進グループ / 2017年入社 / サブリーダー 五十嵐さん</div>
             </div>
           </div>
           <div class="space-y-3 text-xs text-g-muted">
             <div>
-              <div class="story-stage">前職</div>
-              <p>情報系の専門学校卒業後、運用監視とテスト補助を担当。より機器に近い開発に関わりたくて転職した。</p>
+              <div class="story-stage">Interview</div>
+              <p>新卒で、自分の興味を引く技術キーワードを重視し、グラビティにたどり着きました。Java研修を2ヶ月間受けた後、約半年の助走期間を経て開発業務に携わりました。</p>
             </div>
             <div>
-              <div class="story-stage">最初の壁</div>
-              <p>入社直後はCの基礎知識が実務にどうつながるか分からず、研修で毎日詰まった。先輩に質問するのが怖かった時期もあった。</p>
-            </div>
-            <div>
-              <div class="story-stage">転換点</div>
-              <p>1年半後、初めて自分が書いたコードで機器が動いた瞬間。「これが自分の仕事になった」と思った。</p>
-            </div>
-            <div>
-              <div class="story-stage">現在</div>
-              <p class="text-g-light">車載センサーの制御ファームを単独で担当。後輩のコードレビューも始めた。</p>
+              <div class="story-stage">Now</div>
+              <p class="text-g-light">最近は、指導した後輩の成長を見て、マネジメントへの新たなキャリアの視点が広がりました。</p>
             </div>
           </div>
+          <a href="https://www.e-gravity.co.jp/recruit/staff-interview02/" target="_blank" rel="noopener"
+             class="mt-5 inline-flex text-g-blue-lt text-sm font-mono hover:underline">詳しく見る →</a>
         </div>
 
-        <!-- Story 2 -->
         <div class="card p-6 fade-up" style="transition-delay:0.12s">
+          <img src="images/interview-list04.jpg" alt="尾原さん" class="story-thumb" />
           <div class="flex items-center gap-4 mb-5">
-            <div class="photo-placeholder">B</div>
             <div>
-              <div class="text-white font-bold text-sm">Bさん</div>
-              <div class="text-g-muted text-xs">入社5年目 / セミコンダクタ</div>
+              <div class="text-g-light font-bold text-sm">インパクトあるアプリを開発できるエンジニアになりたい</div>
+              <div class="text-g-muted text-xs">2023年入社 / 尾原さん</div>
             </div>
           </div>
           <div class="space-y-3 text-xs text-g-muted">
             <div>
-              <div class="story-stage">前職</div>
-              <p>文系大学卒業後、製造業向け機器の営業サポートを3年経験。評価結果に触れるうち、ものづくりの中身に踏み込みたくて転職した。</p>
+              <div class="story-stage">Interview</div>
+              <p>社員インタビュー記事より掲載しています。</p>
             </div>
             <div>
-              <div class="story-stage">最初の壁</div>
-              <p>仕様書は読めても、半導体検証の観点は最初ほとんど分からなかった。研修で配られた教材を毎晩読み返し、理解に半年ほどかかった。</p>
-            </div>
-            <div>
-              <div class="story-stage">転換点</div>
-              <p>自分が検証したチップが製品に採用された報告を受けたとき。「社会に届いた」と感じた。</p>
-            </div>
-            <div>
-              <div class="story-stage">現在</div>
-              <p class="text-g-light">車載チップの動作検証を一人で回している。来年は検証リーダーを打診されている。</p>
+              <div class="story-stage">Now</div>
+              <p class="text-g-light">タイトル・写真・導線は現行の社員インタビューに合わせています。</p>
             </div>
           </div>
+          <a href="https://www.e-gravity.co.jp/recruit/staff-interview04/" target="_blank" rel="noopener"
+             class="mt-5 inline-flex text-g-blue-lt text-sm font-mono hover:underline">詳しく見る →</a>
         </div>
 
-        <!-- Story 3 -->
         <div class="card p-6 fade-up" style="transition-delay:0.2s">
+          <img src="images/interview-list05.jpg" alt="溝渕さん" class="story-thumb" />
           <div class="flex items-center gap-4 mb-5">
-            <div class="photo-placeholder">C</div>
             <div>
-              <div class="text-white font-bold text-sm">Cさん</div>
-              <div class="text-g-muted text-xs">入社2年目 / ハードウェア</div>
+              <div class="text-g-light font-bold text-sm">経験あるCAD知識を活かし新しい業務領域に挑戦</div>
+              <div class="text-g-muted text-xs">技術基盤推進グループ / 2023年入社 / 溝渕さん</div>
             </div>
           </div>
           <div class="space-y-3 text-xs text-g-muted">
             <div>
-              <div class="story-stage">前職</div>
-              <p>理系大学院卒業後、別業種のソフト会社に就職。回路設計に興味があり、ソフト側の経験を生かしてハード寄りにキャリアチェンジした。</p>
+              <div class="story-stage">Interview</div>
+              <p>前職ではCADを活用した設計業務に携わっていました。グラビティに入社してからはCADの経験を活かし、新しい業務領域であるPLMに挑戦しています。</p>
             </div>
             <div>
-              <div class="story-stage">最初の壁</div>
-              <p>CADの操作から始まり、回路を読む実務の勘所はまだ薄かった。最初の3ヶ月は「自分に向いているのか」と悩んだ。</p>
-            </div>
-            <div>
-              <div class="story-stage">転換点</div>
-              <p>先輩から「わからないことはわからないと言っていい」と言われたこと。そこから質問できるようになった。</p>
-            </div>
-            <div>
-              <div class="story-stage">現在</div>
-              <p class="text-g-light">FA機器向け基板の部分設計を担当。回路図を自分の言葉で説明できるようになってきた。</p>
+              <div class="story-stage">Now</div>
+              <p class="text-g-light">これまでの経験や知識を活かしながら、製品開発の全プロセスを見渡すことができる環境でPLMに挑戦できることに、やりがいを感じています。</p>
             </div>
           </div>
+          <a href="https://www.e-gravity.co.jp/recruit/staff-interview05/" target="_blank" rel="noopener"
+             class="mt-5 inline-flex text-g-blue-lt text-sm font-mono hover:underline">詳しく見る →</a>
         </div>
 
       </div>
@@ -1172,10 +1240,10 @@
     <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,2.05fr)] gap-10 md:gap-12 mb-12">
 
       <div class="lg:pr-6">
-        <div class="heading-serif text-lg text-white tracking-widest mb-3">GRAVITY</div>
+        <img src="images/company-name-header.png" alt="GRAVITY" class="brand-mark mb-3" />
         <p class="text-g-muted text-xs leading-relaxed mb-5 max-w-sm">
-          製造業・組込・制御・ハードウェア領域に特化した技術集団。
-          先端技術を追い続け、社会課題を解決する。
+          私たちは先端技術を追い続け、社会課題を解決することを目指す技術集団です。
+          エンジニアが心からワクワクし、豊かな経験を得られるような環境を提供し続けます。
         </p>
         <a href="https://www.e-gravity.co.jp/news/" target="_blank" rel="noopener" class="badge text-xs mb-8">NOTE</a>
 
