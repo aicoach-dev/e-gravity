@@ -20,16 +20,16 @@
       theme: {
         extend: {
           colors: {
-            /* [10] 公式サイト寄りの暗色ベース + 深いグリーンへ調整 */
-            'g-dark':    '#07110e',
-            'g-navy':    '#0b1a17',
-            'g-mid':     '#102621',
-            'g-steel':   '#18342d',
+            /* [11] 明るいコーポレートトーンへ再設計 */
+            'g-dark':    '#21332d',
+            'g-navy':    '#f4f7f3',
+            'g-mid':     '#eef3ee',
+            'g-steel':   '#d9e5df',
             'g-blue':    '#2f6b5d',
-            'g-blue-lt': '#8fb8ab',
-            'g-gold':    '#808b68',
-            'g-light':   '#d6e1db',
-            'g-muted':   '#7b8f87',
+            'g-blue-lt': '#3f7f6f',
+            'g-gold':    '#6f7a61',
+            'g-light':   '#33413b',
+            'g-muted':   '#66766f',
           },
           fontFamily: {
             /* [6] Noto Serif JP で信頼感・格調を表現 */
@@ -49,8 +49,8 @@
     html, body { width: 100%; }
     body {
       font-family: 'Noto Sans JP', sans-serif;
-      background: #07110e;
-      color: #d6e1db;
+      background: #f6f8f5;
+      color: #33413b;
       overflow-x: hidden;
       -webkit-text-size-adjust: 100%;
       text-rendering: optimizeLegibility;
@@ -58,10 +58,10 @@
 
     /* ─── Glassmorphism Nav ─────────────────────────── */
     #main-nav {
-      background: rgba(7,17,14,0.82);
+      background: rgba(246,248,245,0.92);
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
-      border-bottom: 1px solid rgba(143,184,171,0.14);
+      border-bottom: 1px solid rgba(47,107,93,0.12);
       isolation: isolate;
       transform: translateZ(0);
     }
@@ -70,8 +70,8 @@
     /* [10] 深いグリーン寄りの暗色オーバーレイへ調整 */
     #hero {
       background:
-        linear-gradient(160deg, rgba(47,107,93,0.08) 0%, rgba(7,17,14,0.2) 52%, transparent 72%),
-        linear-gradient(0deg, rgba(7,17,14,0.98) 0%, rgba(7,17,14,0.64) 55%, rgba(7,17,14,0.94) 100%),
+        linear-gradient(160deg, rgba(47,107,93,0.05) 0%, rgba(244,247,243,0.62) 52%, rgba(244,247,243,0.8) 100%),
+        linear-gradient(0deg, rgba(244,247,243,0.92) 0%, rgba(244,247,243,0.72) 55%, rgba(244,247,243,0.96) 100%),
         url('https://images.unsplash.com/photo-1518770660439-4636190af475?w=1600&q=80') center/cover no-repeat;
       min-height: 100vh;
       min-height: 100svh;
@@ -83,8 +83,8 @@
     /* ─── Grid texture ──────────────────────────────── */
     .grid-texture {
       background-image:
-        linear-gradient(rgba(143,184,171,0.028) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(143,184,171,0.028) 1px, transparent 1px);
+        linear-gradient(rgba(47,107,93,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(47,107,93,0.04) 1px, transparent 1px);
       background-size: 40px 40px;
     }
 
@@ -104,32 +104,32 @@
       font-size: 0.63rem;
       letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: #8fb8ab;
+      color: #3f7f6f;
     }
 
     /* ─── Cards ─────────────────────────────────────── */
     .card {
-      background: rgba(16,38,33,0.74);
-      border: 1px solid rgba(143,184,171,0.13);
+      background: rgba(255,255,255,0.94);
+      border: 1px solid rgba(47,107,93,0.12);
       border-radius: 8px;
       transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
     }
     .card:hover {
       transform: translateY(-4px);
-      border-color: rgba(143,184,171,0.28);
-      box-shadow: 0 14px 36px rgba(17,39,34,0.34);
+      border-color: rgba(47,107,93,0.2);
+      box-shadow: 0 10px 24px rgba(33,51,45,0.08);
     }
 
     /* ─── Stat card ─────────────────────────────────── */
     .stat-card {
-      background: linear-gradient(135deg, rgba(24,52,45,0.7), rgba(16,38,33,0.86));
-      border: 1px solid rgba(143,184,171,0.15);
+      background: linear-gradient(135deg, rgba(255,255,255,0.98), rgba(238,243,238,0.96));
+      border: 1px solid rgba(47,107,93,0.12);
       border-radius: 8px;
     }
 
     /* ─── CTA buttons ───────────────────────────────── */
     .btn-primary {
-      background: linear-gradient(135deg, #295a4f, #1d433a);
+      background: linear-gradient(135deg, #3f7f6f, #2f6b5d);
       color: #ffffff;
       font-weight: 700;
       border-radius: 8px;
@@ -139,11 +139,11 @@
       font-family: 'Noto Sans JP', sans-serif;
       letter-spacing: 0.03em;
     }
-    .btn-primary:hover { opacity: 0.94; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(17,39,34,0.42); }
+    .btn-primary:hover { opacity: 0.96; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(47,107,93,0.16); }
 
     .btn-ghost {
-      border: 1px solid rgba(143,184,171,0.34);
-      color: #8fb8ab;
+      border: 1px solid rgba(47,107,93,0.2);
+      color: #2f6b5d;
       font-weight: 500;
       border-radius: 8px;
       padding: 0.85rem 1.75rem;
@@ -151,38 +151,38 @@
       transition: background 0.2s, transform 0.2s;
       font-family: 'Noto Sans JP', sans-serif;
     }
-    .btn-ghost:hover { background: rgba(143,184,171,0.08); transform: translateY(-2px); }
+    .btn-ghost:hover { background: rgba(47,107,93,0.06); transform: translateY(-2px); }
     .btn-primary:focus-visible,
     .btn-ghost:focus-visible {
-      outline: 2px solid rgba(143,184,171,0.88);
+      outline: 2px solid rgba(63,127,111,0.72);
       outline-offset: 2px;
     }
 
     .cta-card-subtle {
-      background: rgba(16,38,33,0.8);
-      border-color: rgba(143,184,171,0.14);
+      background: rgba(255,255,255,0.96);
+      border-color: rgba(47,107,93,0.1);
     }
 
     .cta-card-strong {
-      background: rgba(21,47,40,0.88);
-      border-color: rgba(143,184,171,0.2);
-      box-shadow: 0 10px 28px rgba(8,18,15,0.28);
+      background: rgba(247,250,248,0.98);
+      border-color: rgba(47,107,93,0.14);
+      box-shadow: 0 10px 24px rgba(33,51,45,0.08);
     }
 
     .cta-icon {
       font-family: 'Space Mono', monospace;
       font-size: 0.72rem;
       letter-spacing: 0.12em;
-      color: #8fb8ab;
+      color: #3f7f6f;
       opacity: 0.85;
     }
 
     /* ─── Badge ─────────────────────────────────────── */
     .badge {
       display: inline-flex; align-items: center;
-      background: rgba(47,107,93,0.16);
-      border: 1px solid rgba(143,184,171,0.24);
-      color: #8fb8ab;
+      background: rgba(47,107,93,0.08);
+      border: 1px solid rgba(47,107,93,0.16);
+      color: #2f6b5d;
       font-size: 0.7rem; font-weight: 600;
       letter-spacing: 0.06em;
       padding: 0.22rem 0.7rem;
@@ -192,9 +192,9 @@
     /* ─── Tech tag ──────────────────────────────────── */
     /* [7] .highlight クラス削除・統一スタイルのみ */
     .tech-tag {
-      background: rgba(47,107,93,0.12);
-      border: 1px solid rgba(143,184,171,0.18);
-      color: #8fb8ab;
+      background: rgba(47,107,93,0.08);
+      border: 1px solid rgba(47,107,93,0.12);
+      color: #2f6b5d;
       font-size: 0.7rem;
       padding: 0.2rem 0.6rem;
       border-radius: 4px;
@@ -212,14 +212,14 @@
       width: 13px; height: 13px;
       border-radius: 50%;
       background: #2f6b5d;
-      box-shadow: 0 0 10px rgba(47,107,93,0.34);
+      box-shadow: 0 0 0 4px rgba(47,107,93,0.08);
     }
     .timeline-step::after {
       content: '';
       position: absolute; left: 6px; top: 1.4rem;
       width: 1px;
       bottom: -1.5rem;
-      background: linear-gradient(180deg, rgba(143,184,171,0.22), transparent);
+      background: linear-gradient(180deg, rgba(47,107,93,0.2), transparent);
     }
     .timeline-step:last-child::after { display: none; }
 
@@ -234,7 +234,7 @@
     /* ─── Section divider ───────────────────────────── */
     .section-divider {
       height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(143,184,171,0.16), transparent);
+      background: linear-gradient(90deg, transparent, rgba(47,107,93,0.14), transparent);
     }
 
     /* ─── Mobile nav ────────────────────────────────── */
@@ -246,7 +246,7 @@
 
     a:focus-visible,
     button:focus-visible {
-      outline: 2px solid rgba(143,184,171,0.88);
+      outline: 2px solid rgba(63,127,111,0.72);
       outline-offset: 3px;
       border-radius: 6px;
     }
@@ -257,18 +257,18 @@
       font-size: 2.5rem;
       font-weight: 700;
       line-height: 1;
-      color: #8fb8ab;
+      color: #2f6b5d;
     }
 
     /* ─── Story card photo placeholder ─────────────── */
     .photo-placeholder {
       width: 56px; height: 56px; border-radius: 50%;
-      background: linear-gradient(135deg, #18342d, rgba(143,184,171,0.18));
-      border: 1px solid rgba(143,184,171,0.2);
+      background: linear-gradient(135deg, #d9e5df, rgba(63,127,111,0.1));
+      border: 1px solid rgba(47,107,93,0.12);
       display: flex; align-items: center; justify-content: center;
       font-family: 'Noto Serif JP', serif;
       font-size: 1.1rem; font-weight: 700;
-      color: #8fb8ab;
+      color: #2f6b5d;
       flex-shrink: 0;
     }
 
@@ -290,8 +290,8 @@
 
     /* ─── Footer ─────────────────────────────────────── */
     footer {
-      background: rgba(6,14,12,0.99);
-      border-top: 1px solid rgba(143,184,171,0.1);
+      background: #eef3ee;
+      border-top: 1px solid rgba(47,107,93,0.1);
     }
 
     /* ─── [6] Noto Serif JP 見出し共通クラス ─────────── */
@@ -300,19 +300,19 @@
       font-weight: 700;
       line-height: 1.35;
       letter-spacing: 0.02em;
-      color: #edf3ef;
+      color: #21332d;
     }
 
     @supports (-webkit-touch-callout: none) {
       #main-nav {
         backdrop-filter: none;
         -webkit-backdrop-filter: none;
-        background: rgba(7,17,14,0.96);
+        background: rgba(246,248,245,0.98);
       }
 
       #hero {
         background:
-          linear-gradient(180deg, rgba(7,17,14,0.94) 0%, rgba(7,17,14,0.8) 58%, rgba(7,17,14,0.92) 100%),
+          linear-gradient(180deg, rgba(244,247,243,0.92) 0%, rgba(244,247,243,0.78) 58%, rgba(244,247,243,0.94) 100%),
           url('https://images.unsplash.com/photo-1518770660439-4636190af475?w=1600&q=80') center/cover no-repeat;
       }
 
@@ -363,6 +363,14 @@
         background-position: center top;
       }
     }
+
+    .text-white { color: #21332d !important; }
+    .text-g-light { color: #33413b !important; }
+    .text-g-muted { color: #66766f !important; }
+    .bg-g-steel { background-color: #d9e5df !important; }
+    .border-white\/5 { border-color: rgba(47,107,93,0.08) !important; }
+    .border-white\/10 { border-color: rgba(47,107,93,0.1) !important; }
+    .bg-white\/\[0\.03\] { background-color: rgba(255,255,255,0.92) !important; }
   </style>
 </head>
 
@@ -411,7 +419,7 @@
     </div>
 
     <!-- Mobile menu -->
-    <div id="mobile-menu" class="md:hidden overflow-hidden max-h-0 opacity-0 border-t border-white/5" style="background:rgba(7,17,14,0.97); max-height:0">
+    <div id="mobile-menu" class="md:hidden overflow-hidden max-h-0 opacity-0 border-t border-white/5" style="background:rgba(246,248,245,0.98); max-height:0">
       <div class="px-4 py-4 flex flex-col gap-4">
         <a href="#technology" class="text-g-light text-sm py-2 border-b border-white/5">技術分野</a>
         <a href="#business"   class="text-g-light text-sm py-2 border-b border-white/5">事業領域</a>
@@ -451,7 +459,7 @@
       <h1 class="fade-up heading-serif text-4xl sm:text-5xl md:text-6xl leading-tight mb-5"
           style="transition-delay:0.1s">
         ハードウェアが動く瞬間に、<br/>
-        <span style="color:#8fb8ab">関わっている。</span>
+        <span style="color:#3f7f6f">関わっている。</span>
       </h1>
 
       <p class="fade-up text-base sm:text-lg text-g-light font-body font-light leading-relaxed mb-3 max-w-2xl"
@@ -513,7 +521,7 @@
   <!-- ──────────────────────────────────────
        SECTION 2: 魅力3点
   ────────────────────────────────────────── -->
-  <section id="appeal" class="py-20 md:py-28" style="background:linear-gradient(180deg,#07110e 0%,#0b1a17 100%)">
+  <section id="appeal" class="py-20 md:py-28" style="background:#f8faf7">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
 
       <div class="fade-up mb-12">
@@ -566,7 +574,7 @@
        SECTION 3: 技術分野
        [7] ゴールドtag削除 → 短い実務説明に置き換え
   ────────────────────────────────────────── -->
-  <section id="technology" class="py-20 md:py-28 grid-texture" style="background:#07110e">
+  <section id="technology" class="py-20 md:py-28 grid-texture" style="background:#f4f7f3">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
 
       <div class="fade-up mb-12">
@@ -669,7 +677,7 @@
   <!-- ──────────────────────────────────────
        SECTION 4: 事業領域
   ────────────────────────────────────────── -->
-  <section id="business" class="py-20 md:py-28" style="background:#0b1a17">
+  <section id="business" class="py-20 md:py-28" style="background:#eef3ee">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
 
       <div class="fade-up mb-12">
@@ -745,7 +753,7 @@
   <!-- ──────────────────────────────────────
        SECTION 5: 組織文化
   ────────────────────────────────────────── -->
-  <section id="culture" class="py-20 md:py-28" style="background:#07110e">
+  <section id="culture" class="py-20 md:py-28" style="background:#f8faf7">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
 
       <div class="fade-up mb-12">
@@ -790,8 +798,8 @@
         </div>
 
         <div class="fade-up" style="transition-delay:0.1s">
-          <div class="card p-8" style="background:linear-gradient(135deg,rgba(24,52,45,0.62),rgba(143,184,171,0.05))">
-            <div class="heading-serif text-4xl mb-4 opacity-20" style="color:#8fb8ab">"</div>
+          <div class="card p-8" style="background:linear-gradient(135deg,rgba(255,255,255,0.98),rgba(238,243,238,0.96))">
+            <div class="heading-serif text-4xl mb-4 opacity-20" style="color:#3f7f6f">"</div>
             <blockquote class="text-g-light text-base leading-relaxed mb-6">
               お客様と共に先端技術を追い続けるブレインとして、
               未知なる価値を創造し続ける。
@@ -816,7 +824,7 @@
   <!-- ──────────────────────────────────────
        SECTION 6: 福利厚生・数値
   ────────────────────────────────────────── -->
-  <section id="benefits" class="py-20 md:py-28 grid-texture" style="background:#0b1a17">
+  <section id="benefits" class="py-20 md:py-28 grid-texture" style="background:#f4f7f3">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
 
       <div class="fade-up mb-12">
@@ -891,7 +899,7 @@
        SECTION 7: キャリアパス
        [3] 1年目・3年目・5年目・10年目に再設計
   ────────────────────────────────────────── -->
-  <section id="career" class="py-20 md:py-28" style="background:#07110e">
+  <section id="career" class="py-20 md:py-28" style="background:#f8faf7">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
 
       <div class="fade-up mb-12">
@@ -980,7 +988,7 @@
        [9] 前職→最初の壁→転換点→現在 の4段構成
        [2] バッジ訴求廃止・経歴と成長の文脈で表現
   ────────────────────────────────────────── -->
-  <section id="story" class="py-20 md:py-28" style="background:#0b1a17">
+  <section id="story" class="py-20 md:py-28" style="background:#eef3ee">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
 
       <div class="fade-up mb-12">
@@ -1097,7 +1105,7 @@
        [1] ターゲット文言を拡張
   ────────────────────────────────────────── -->
   <section id="cta" class="py-24 md:py-36 relative overflow-hidden"
-           style="background:linear-gradient(160deg,#07110e 0%,#0b1a17 50%,#07110e 100%)">
+           style="background:#f4f7f3">
 
     <div class="absolute inset-0 grid-texture opacity-30 pointer-events-none"></div>
 
@@ -1316,7 +1324,7 @@
       if (window.scrollY >= sec.offsetTop - 100) current = sec.getAttribute('id');
     });
     navLinks.forEach(link => {
-      link.style.color = link.getAttribute('href') === '#' + current ? '#8fb8ab' : '';
+      link.style.color = link.getAttribute('href') === '#' + current ? '#3f7f6f' : '';
     });
   }, { passive: true });
 </script>
