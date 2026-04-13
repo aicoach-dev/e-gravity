@@ -1,0 +1,653 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GRAVITY エンジニア採用 | 製造・組込・制御の技術者へ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+/* ─── RESET ─── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+:root {
+  --navy:   #0d2340;
+  --navy2:  #112a4e;
+  --blue:   #1a5fa8;
+  --blue2:  #2271c3;
+  --white:  #ffffff;
+  --off:    #f2f5f9;
+  --border: #dce3ec;
+  --text:   #2d3748;
+  --dim:    #6b7a93;
+  --dim2:   #96a3b5;
+  --accent: #e8a427;
+  --mono:   'Share Tech Mono', monospace;
+  --sans:   'Noto Sans JP', sans-serif;
+}
+body { font-family: var(--sans); color: var(--text); background: #fff; line-height: 1.75; overflow-x: hidden; }
+img { display: block; max-width: 100%; }
+a { text-decoration: none; color: inherit; }
+
+/* ─── HELPERS ─── */
+.container { max-width: 1060px; margin: 0 auto; padding: 0 clamp(1.2rem, 4vw, 2.5rem); }
+.section { padding: clamp(3.5rem, 7vw, 6rem) 0; }
+.section--alt { background: var(--off); }
+.section--dark { background: var(--navy); }
+.label {
+  font-family: var(--mono); font-size: .67rem; letter-spacing: .18em;
+  color: var(--blue); text-transform: uppercase; margin-bottom: .55rem;
+}
+.section-title {
+  font-size: clamp(1.5rem, 3.5vw, 2.15rem);
+  font-weight: 900; color: var(--navy); line-height: 1.35; margin-bottom: .9rem;
+}
+.section-lead { font-size: .93rem; color: var(--dim); line-height: 1.95; max-width: 580px; }
+.rule { width: 30px; height: 2px; background: var(--blue); margin-bottom: 1.5rem; }
+
+/* ─── NAV ─── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  background: rgba(255,255,255,.96); border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(6px);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: .8rem clamp(1.2rem,4vw,2.5rem);
+}
+.nav-logo img { height: 26px; width: auto; }
+.nav-links { display: flex; align-items: center; gap: 1.5rem; }
+.nav-links a { font-size: .8rem; color: var(--dim); letter-spacing: .04em; transition: color .2s; }
+.nav-links a:hover { color: var(--blue); }
+.btn-nav { background: var(--blue) !important; color: var(--white) !important; padding: .5rem 1.2rem; font-weight: 700; transition: background .2s !important; }
+.btn-nav:hover { background: var(--navy) !important; }
+@media(max-width:640px){ .nav-links a:not(.btn-nav) { display: none; } .nav-links { gap: .6rem; } }
+
+/* ─── HERO ─── */
+#hero {
+  min-height: 100vh; display: flex; align-items: flex-end;
+  padding-top: 64px; position: relative; overflow: hidden; background: var(--navy);
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background: url('images/recruit-mainvis-slider4.jpg') center 30% / cover no-repeat;
+  opacity: .35;
+}
+.hero-ov {
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom, rgba(13,35,64,.4) 0%, rgba(13,35,64,.65) 55%, rgba(13,35,64,.96) 100%);
+}
+.hero-content { position: relative; z-index: 1; padding: 4rem 0 5rem; width: 100%; }
+.hero-tag {
+  display: inline-flex; align-items: center; gap: .5rem;
+  font-family: var(--mono); font-size: .68rem; letter-spacing: .15em;
+  color: var(--accent); border: 1px solid rgba(232,164,39,.4);
+  padding: .28rem .75rem; margin-bottom: 1.5rem;
+}
+.hero-tag::before { content: '▶'; font-size: .52rem; }
+h1.hero-h1 {
+  font-size: clamp(1.85rem, 4.8vw, 3.3rem); font-weight: 900;
+  color: var(--white); line-height: 1.25; margin-bottom: .9rem;
+}
+h1.hero-h1 em { font-style: normal; display: block; color: #7ecff5; }
+.hero-sub {
+  font-size: clamp(.88rem, 1.7vw, 1rem); color: rgba(255,255,255,.72);
+  max-width: 500px; line-height: 1.9; margin-bottom: 2rem;
+}
+.hero-sub strong { color: var(--white); }
+.hero-btns { display: flex; gap: .85rem; flex-wrap: wrap; }
+.btn-p {
+  display: inline-block; background: var(--blue); color: var(--white);
+  font-weight: 700; font-size: .88rem; padding: .88rem 2rem;
+  letter-spacing: .05em; transition: background .2s, transform .15s;
+}
+.btn-p:hover { background: var(--blue2); transform: translateY(-2px); }
+.btn-o {
+  display: inline-block; border: 1.5px solid rgba(255,255,255,.4);
+  color: rgba(255,255,255,.8); font-size: .84rem; padding: .88rem 1.6rem;
+  letter-spacing: .04em; transition: border-color .2s, color .2s;
+}
+.btn-o:hover { border-color: rgba(255,255,255,.85); color: #fff; }
+.hero-scroll {
+  position: absolute; bottom: 1.6rem; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: .35rem;
+  font-family: var(--mono); font-size: .6rem; letter-spacing: .15em;
+  color: rgba(255,255,255,.35); animation: bounce 2.2s infinite;
+}
+.hero-scroll::after {
+  content: ''; display: block; width: 1px; height: 30px;
+  background: linear-gradient(to bottom, rgba(255,255,255,.35), transparent);
+}
+@keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(7px)} }
+
+/* ─── JOBS ─── */
+.jobs-top { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; margin-bottom: 2.8rem; }
+@media(max-width:680px){ .jobs-top { grid-template-columns: 1fr; gap: 1.5rem; } }
+.not-us {
+  background: #fff8f0; border: 1px solid #f0d9bb; border-left: 3px solid var(--accent);
+  padding: 1rem 1.2rem; font-size: .82rem; color: var(--dim); line-height: 1.8; margin-top: 1.4rem;
+}
+.not-us strong { color: var(--text); }
+.job-cards { display: flex; flex-direction: column; gap: .95rem; }
+.job-card {
+  background: #fff; border: 1px solid var(--border);
+  display: grid; grid-template-columns: 2.8rem 1fr auto; gap: 1.1rem; align-items: start;
+  padding: 1.35rem 1.5rem; transition: border-color .2s, box-shadow .2s;
+}
+.job-card:hover { border-color: var(--blue); box-shadow: 0 2px 12px rgba(26,95,168,.1); }
+.job-n { font-family: var(--mono); font-size: 1.2rem; font-weight: 700; color: var(--border); line-height: 1; padding-top: .2rem; }
+.job-body h3 { font-size: .96rem; font-weight: 700; color: var(--navy); margin-bottom: .38rem; }
+.job-body p { font-size: .83rem; color: var(--dim); line-height: 1.82; }
+.job-techs { display: flex; flex-wrap: wrap; gap: .32rem; margin-top: .65rem; }
+.job-techs span { font-family: var(--mono); font-size: .58rem; letter-spacing: .06em; border: 1px solid var(--border); color: var(--dim2); padding: .16rem .48rem; }
+.job-badge { font-size: .62rem; letter-spacing: .05em; background: rgba(26,95,168,.06); color: var(--blue); border: 1px solid rgba(26,95,168,.18); padding: .2rem .55rem; align-self: start; white-space: nowrap; }
+
+/* ─── GROWTH ─── */
+.persona {
+  background: #fff; border: 1px solid var(--border); border-left: 3px solid var(--blue);
+  padding: 1.2rem 1.4rem; display: flex; gap: 1.1rem; align-items: flex-start;
+  margin-bottom: 2.6rem; flex-wrap: wrap;
+}
+.persona-img { width: 58px; height: 58px; border-radius: 50%; object-fit: cover; flex-shrink: 0; border: 2px solid var(--border); }
+.persona-meta h4 { font-size: .93rem; font-weight: 700; color: var(--navy); margin-bottom: .18rem; }
+.persona-meta p { font-size: .8rem; color: var(--dim); line-height: 1.75; }
+.tl { position: relative; padding-left: 2rem; }
+.tl::before { content: ''; position: absolute; top: 6px; bottom: 0; left: 5px; width: 2px; background: linear-gradient(to bottom, var(--blue), #c8d8ea); }
+.tl-item { position: relative; padding-bottom: 2.4rem; }
+.tl-item:last-child { padding-bottom: 0; }
+.tl-dot { position: absolute; left: -1.9rem; top: .22rem; width: 11px; height: 11px; border-radius: 50%; background: var(--blue); border: 2px solid var(--off); box-shadow: 0 0 0 3px rgba(26,95,168,.15); }
+.tl-period { font-family: var(--mono); font-size: .65rem; letter-spacing: .12em; color: var(--blue); margin-bottom: .3rem; }
+.tl-item h3 { font-size: .95rem; font-weight: 700; color: var(--navy); margin-bottom: .38rem; }
+.tl-item p { font-size: .83rem; color: var(--dim); line-height: 1.83; }
+.tl-voice { margin-top: .55rem; background: rgba(26,95,168,.04); border-left: 2px solid rgba(26,95,168,.28); padding: .45rem .85rem; font-size: .78rem; color: var(--dim); font-style: italic; }
+
+/* ─── ENV ─── */
+.env-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2.5rem; }
+@media(max-width:680px){ .env-grid { grid-template-columns: 1fr; } }
+.env-img img { width: 100%; border: 1px solid var(--border); }
+.env-cap { font-size: .75rem; color: var(--dim2); margin-top: .45rem; text-align: center; }
+.env-facts { display: flex; flex-direction: column; gap: .9rem; margin-top: 1.8rem; }
+.env-fact { background: #fff; border: 1px solid var(--border); padding: 1.1rem 1.3rem; }
+.env-fact h4 { font-size: .88rem; font-weight: 700; color: var(--navy); margin-bottom: .28rem; }
+.env-fact p { font-size: .81rem; color: var(--dim); line-height: 1.8; }
+
+/* ─── CAREER ─── */
+.career-illus { margin: 2.2rem 0 1rem; }
+.career-illus img { width: 100%; max-width: 760px; margin: 0 auto; border: 1px solid var(--border); }
+.career-note { background: var(--off); border: 1px solid var(--border); border-left: 3px solid var(--blue); padding: 1.1rem 1.4rem; font-size: .83rem; color: var(--dim); line-height: 1.88; max-width: 680px; margin-top: 1.5rem; }
+.career-note strong { color: var(--text); }
+
+/* ─── CONDITIONS (給与・条件) ─── */
+.conditions-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; margin-top: 2.4rem; }
+@media(max-width:680px){ .conditions-grid { grid-template-columns: 1fr; } }
+.cond-card { background: var(--white); border: 1px solid var(--border); padding: 1.3rem 1.5rem; }
+.cond-card-header { display: flex; align-items: center; gap: .6rem; margin-bottom: .7rem; }
+.cond-icon { font-size: 1.1rem; }
+.cond-card h4 { font-size: .9rem; font-weight: 700; color: var(--navy); }
+.cond-card p { font-size: .82rem; color: var(--dim); line-height: 1.82; }
+.cond-card strong { color: var(--text); }
+.cond-highlight {
+  background: rgba(26,95,168,.04); border: 1px solid rgba(26,95,168,.15);
+  border-left: 3px solid var(--blue);
+  padding: 1rem 1.4rem; margin-top: 1.5rem;
+  font-size: .84rem; color: var(--dim); line-height: 1.88;
+}
+.cond-highlight strong { color: var(--navy); }
+.trust-nums { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; margin-top: 2.4rem; }
+@media(max-width:680px){ .trust-nums { grid-template-columns: 1fr 1fr; } }
+.trust-num { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1); padding: 1.6rem 1.2rem; text-align: center; }
+.trust-num .big { font-family: var(--mono); font-size: 2.2rem; font-weight: 700; color: #fff; line-height: 1; margin-bottom: .25rem; }
+.trust-num .big span { font-size: .95rem; }
+.trust-num p { font-size: .76rem; color: rgba(255,255,255,.45); line-height: 1.6; margin-top: .25rem; }
+
+/* ─── INTERVIEW ─── */
+.interview-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.3rem; margin-top: 2.4rem; }
+@media(max-width:720px){ .interview-row { grid-template-columns: 1fr 1fr; } }
+@media(max-width:440px){ .interview-row { grid-template-columns: 1fr; } }
+.iv-card { background: #fff; border: 1px solid var(--border); overflow: hidden; transition: box-shadow .2s; }
+.iv-card:hover { box-shadow: 0 4px 16px rgba(13,35,64,.1); }
+.iv-card img { width: 100%; aspect-ratio: 4/3; object-fit: cover; }
+.iv-body { padding: .95rem 1.1rem; }
+.iv-role { font-family: var(--mono); font-size: .6rem; letter-spacing: .1em; color: var(--blue); margin-bottom: .28rem; }
+.iv-body h4 { font-size: .86rem; font-weight: 700; color: var(--navy); margin-bottom: .28rem; }
+.iv-body p { font-size: .77rem; color: var(--dim); line-height: 1.72; }
+.iv-meta { font-size: .72rem; color: var(--dim2); margin-bottom: .5rem; line-height: 1.6; border-bottom: 1px solid var(--border); padding-bottom: .5rem; }
+
+/* ─── CTA ─── */
+#cta { background: var(--navy); padding: clamp(3.5rem,7vw,6rem) 0; }
+.cta-inner { max-width: 640px; }
+.cta-inner .section-title { color: #fff; }
+.cta-inner .section-lead { color: rgba(255,255,255,.58); }
+#cta .label { color: rgba(255,255,255,.4); }
+.cta-steps { display: flex; gap: 1.1rem; flex-wrap: wrap; margin: 1.7rem 0 2rem; }
+.cta-step { display: flex; align-items: center; gap: .5rem; font-size: .82rem; color: rgba(255,255,255,.6); }
+.step-n {
+  font-family: var(--mono); font-size: .58rem;
+  width: 20px; height: 20px; border: 1px solid rgba(255,255,255,.28);
+  color: rgba(255,255,255,.45); display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.cta-btns { display: flex; gap: .9rem; flex-wrap: wrap; }
+.btn-cta { display: inline-block; background: var(--blue); color: #fff; font-weight: 700; font-size: .88rem; padding: .95rem 2.1rem; letter-spacing: .05em; transition: background .2s; }
+.btn-cta:hover { background: var(--blue2); }
+.btn-cta-sub { display: inline-block; border: 1.5px solid rgba(255,255,255,.32); color: rgba(255,255,255,.72); font-size: .83rem; padding: .95rem 1.6rem; letter-spacing: .04em; transition: border-color .2s, color .2s; }
+.btn-cta-sub:hover { border-color: rgba(255,255,255,.75); color: #fff; }
+.cta-foot { margin-top: 1.2rem; font-size: .77rem; color: rgba(255,255,255,.35); line-height: 1.8; }
+
+/* ─── FOOTER ─── */
+footer { background: var(--navy); border-top: 1px solid rgba(255,255,255,.05); padding: 1.7rem 0; text-align: center; }
+footer img { height: 16px; margin: 0 auto .6rem; opacity: .35; }
+footer p { font-size: .7rem; color: rgba(255,255,255,.28); letter-spacing: .06em; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero"><img src="images/company-name-header.png" alt="GRAVITY"></a>
+  <div class="nav-links">
+    <a href="#jobs">仕事内容</a>
+    <a href="#growth">成長イメージ</a>
+    <a href="#conditions">給与・条件</a>
+    <a href="#cta" class="btn-nav">エントリー</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-ov"></div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-tag">対象：第二新卒・微経験エンジニア</div>
+      <h1 class="hero-h1">
+        現場で経験を積みながら、<br>
+        <em>技術を伸ばしていきたい方へ。</em>
+      </h1>
+      <p class="hero-sub">
+        製造業・組込み・制御・設計開発の現場で<br>
+        <strong>地に足のついた技術</strong>を積み上げたいなら、ここから始められます。<br>
+        第二新卒・微経験からスタートできます。
+      </p>
+      <div class="hero-btns">
+        <a href="#growth" class="btn-p">入社後のリアルを見る</a>
+        <a href="#jobs" class="btn-o">仕事内容を確認する</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll">SCROLL</div>
+</section>
+
+
+<!-- JOBS -->
+<section class="section" id="jobs">
+  <div class="container">
+    <div class="jobs-top">
+      <div>
+        <div class="label">// WHAT WE DO</div>
+        <h2 class="section-title">GRAVITYは「現場」を動かす<br>技術者集団です。</h2>
+        <div class="rule"></div>
+        <p class="section-lead">
+          Webサービスやスマホアプリを作る会社ではありません。<br>
+          工場・製造ライン・産業機器が正しく動くことを支える仕事。<br>
+          触れる・見える・動く技術を扱います。
+        </p>
+        <div class="not-us">
+          <strong>扱っていない仕事：</strong><br>
+          Webアプリ / スマホアプリ / SaaS・クラウド / AIモデル開発<br>
+          製造・組込・制御の現場仕事とは、明確に違います。
+        </div>
+      </div>
+      <div>
+          <img src="images/top-banner01.jpg" alt="現場の様子" style="width:100%;border:1px solid var(--border);">
+      </div>
+    </div>
+
+    <div class="job-cards">
+      <div class="job-card">
+        <div class="job-n">01</div>
+        <div class="job-body">
+          <h3>制御システム開発・保守（PLC）</h3>
+          <p>三菱・オムロン等のPLCを使い、製造ラインの動作シーケンスをラダー図で実装します。最初は既存プログラムの読み解きから始まり、3〜6ヶ月で改修作業を一人で担当できるようになります。</p>
+          <div class="job-techs">
+            <span>ラダー図</span><span>三菱MELSEC</span><span>オムロンSysmac</span><span>シーケンス制御</span>
+          </div>
+        </div>
+        <div class="job-badge">微経験→可</div>
+      </div>
+      <div class="job-card">
+        <div class="job-n">02</div>
+        <div class="job-body">
+          <h3>組込みソフトウェア開発</h3>
+          <p>マイコン・FPGAを使い、センサー制御・通信処理・モーター駆動をC言語で実装します。学校でC言語を触ったことがある方は、実務との距離が最も近い領域です。</p>
+          <div class="job-techs">
+            <span>C言語</span><span>STM32</span><span>Renesas</span><span>UART/SPI/I2C</span><span>RTOS</span>
+          </div>
+        </div>
+        <div class="job-badge">C言語経験者</div>
+      </div>
+      <div class="job-card">
+        <div class="job-n">03</div>
+        <div class="job-body">
+          <h3>機械・電気設計支援</h3>
+          <p>AutoCAD・SolidWorksを用いた図面作成補助・部品管理・設計変更反映。機械系・電気系出身者が多く活躍しています。現場の設計者と直接やり取りする実務です。</p>
+          <div class="job-techs">
+            <span>AutoCAD</span><span>SolidWorks</span><span>GD&amp;T</span><span>部品管理</span>
+          </div>
+        </div>
+        <div class="job-badge">機械・電気系向け</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GROWTH -->
+<section class="section section--alt" id="growth">
+  <div class="container">
+    <div class="label">// REAL STORY</div>
+    <h2 class="section-title">入社後、実際にどうなるか。<br>1名の軌跡で見せます。</h2>
+    <div class="rule"></div>
+    <p class="section-lead" style="margin-bottom:2.2rem">
+      「成長できます」は信じなくていい。<br>
+      ある1人のエンジニアが何をしたか、月単位で公開します。
+    </p>
+
+    <div class="persona">
+      <img src="images/interview-list04.jpg" alt="先輩エンジニア" class="persona-img">
+      <div class="persona-meta">
+        <h4>T.Y.（仮名） - 制御システムロール</h4>
+        <p>機械系専門学校卒 / 前職：食品工場ライン作業員（2年）<br>
+        PLCの知識：ほぼゼロ / プログラミング経験なし / 制御は名前を聞いた程度</p>
+      </div>
+    </div>
+
+    <div class="tl">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-period">入社〜2週間</div>
+        <h3>社内研修・PLC基礎</h3>
+        <p>ラダー図の読み方とシーケンス制御の基本概念を社内研修で習得。先輩が横につき、既存プログラムを一緒に読む時間が毎日1〜2時間あります。</p>
+        <div class="tl-voice">「最初の2週間は読む練習だけ。書かせてもらえないのが逆に安心でした」</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-period">1ヶ月〜3ヶ月</div>
+        <h3>初めての客先常駐・補助作業</h3>
+        <p>愛知県内の自動車部品メーカーへ配属。先輩2名と3人チームでPLC保守作業に従事。センサー調整・パラメータ確認・日報記録からスタート。週1回、社内担当メンターとの面談あり。</p>
+        <div class="tl-voice">「最初の1ヶ月は用語が全然わからなかった。でもチームの誰かが必ず説明してくれた」</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-period">4ヶ月〜8ヶ月</div>
+        <h3>小規模改修を単独で担当</h3>
+        <p>ラインの搬送タイミング調整（既存プログラムへの追記）を初めて一人で担当。仕様書作成・レビュー・実機テストまで責任を持ち、先輩がレビューする体制でリリース。</p>
+        <div class="tl-voice">「自分が書いたコードで機械が動いた瞬間、この仕事が"自分ごと"になった」</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-period">1年後</div>
+        <h3>新規ライン立ち上げに参画</h3>
+        <p>新設検査ラインの制御システム開発に計画段階から参加。先輩・機械設計者・クライアントとの仕様打ち合わせに出席し、担当モジュールを責任を持って開発。技能検定「シーケンス制御 3級」取得済み。</p>
+        <div class="tl-voice">「前職が工場作業員だったから、現場の動き方が最初からイメージできたのが強みだったと思う」</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ENVIRONMENT -->
+<section class="section" id="env">
+  <div class="container">
+    <div class="label">// ENVIRONMENT</div>
+    <h2 class="section-title">長く続けられる理由。</h2>
+    <div class="rule"></div>
+    <p class="section-lead">福利厚生の羅列より、実際に働き続けられる仕組みを確認してください。</p>
+
+    <div class="env-grid">
+      <div class="env-img">
+        <img src="images/env_graph_01_2.jpg" alt="在籍エンジニアの年齢層">
+        <p class="env-cap">■ 在籍エンジニアの年齢層（40代33%・50代23%が中核）</p>
+        <p style="font-size:.78rem;color:var(--dim);margin-top:.6rem;line-height:1.75;">中堅・ベテランが厚く、現場経験が豊富な先輩が多い。20〜30代が少ない分、若手へのOJT機会が集中する構造です。</p>
+      </div>
+      <div class="env-img">
+        <img src="images/env_graph_02_2.jpg" alt="職種別構成比">
+        <p class="env-cap">■ 職種別構成比（SW / ハード・メカ / バックオフィス）</p>
+        <p style="font-size:.78rem;color:var(--dim);margin-top:.6rem;line-height:1.75;">ソフト・ハード合わせて87.7%が技術職。技術者として長く働ける比率構成です。</p>
+      </div>
+    </div>
+
+    <div class="env-img" style="margin-top:2rem;">
+      <img src="images/organizational_health_summary_2025.png" alt="組織の健康状態サマリー 2025">
+      <p class="env-cap">■ 組織の健康状態サマリー（2025年）</p>
+      <p style="font-size:.78rem;color:var(--dim);margin-top:.6rem;line-height:1.75;">現場配属後の支援体制や継続意向に関する社内サマリーです。待遇だけでは見えにくい「続けやすさ」の裏付けとして確認できます。</p>
+    </div>
+
+    <div class="env-facts">
+      <div class="env-fact">
+        <h4>主な勤務エリア</h4>
+        <p>客先は<strong>関東・東海エリア</strong>が中心です。転居を伴う異動は発生しません。配属前の面談で通勤可能範囲を確認したうえで、現場を決定します。</p>
+      </div>
+      <div class="env-fact">
+        <h4>待機期間について</h4>
+        <p>入社後、現場配属までに待機期間が発生する場合があります。ただし、<strong>社内研修・OJT準備期間として給与は通常通り支給</strong>されます。過去1年の平均アサインまでの期間は入社後2〜3週間以内です。</p>
+      </div>
+      <div class="env-fact">
+        <h4>配属ガチャはありません</h4>
+        <p>配属前に希望分野（制御 / 組込み / 設計）と通勤可能エリアを必ず面談で確認します。「行けない距離・興味のない分野」への配属は行いません。配属後も3・6・12ヶ月でキャリア面談を実施します。</p>
+      </div>
+      <div class="env-fact">
+        <h4>最初の3〜6ヶ月はチームで動きます</h4>
+        <p>一人で放り込まれることはありません。先輩エンジニアとのチーム配属が前提で、担当メンターによる定期面談が継続します。</p>
+      </div>
+      <div class="env-fact" style="display:flex;gap:.9rem;align-items:flex-start;">
+        <img src="images/leader01.png" alt="リーダー社員" style="width:48px;height:48px;border-radius:50%;object-fit:cover;flex-shrink:0;border:2px solid var(--border);">
+        <div>
+          <h4>相談先が見えた状態で始まります</h4>
+          <p>配属直後から、現場側と社内側の両方で相談先を明確にします。困りごとを抱えたまま放置しないための最小単位として、定期接点を持つリーダーが付きます。</p>
+        </div>
+      </div>
+      <div class="env-fact">
+        <h4>資格取得を支援します</h4>
+        <p>受験費用全額補助。技術勉強会は月1回。制御・組込みエンジニアとして体系的なスキルを身につけるための制度が整っています。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAREER -->
+<section class="section section--alt" id="career">
+  <div class="container">
+    <div class="label">// CAREER PATH</div>
+    <h2 class="section-title">積み上げた技術が、<br>キャリアになる。</h2>
+    <div class="rule"></div>
+    <p class="section-lead">派手なステップアップより、できることが着実に増える道筋。マネジメントと技術専門、2つのコースから選べます。</p>
+
+    <div class="career-illus">
+      <img src="images/illustration_gradeup2.jpg" alt="グレードアップ基準">
+    </div>
+
+    <div class="career-note">
+      <strong>グレード制度について：</strong><br>
+      Grade 01（見習い・成長）から始まり、業務完遂・設計担当・後輩指導など具体的な昇格ポイントが定められています。「なんとなく頑張る」ではなく、<strong>何ができるようになれば次に進めるか</strong>が明確です。
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<section class="section section--dark" id="trust">
+  <div class="container">
+    <div class="label" style="color:rgba(255,255,255,.4)">// BY THE NUMBERS</div>
+    <h2 class="section-title" style="color:#fff">ちゃんと仕事している会社か、<br>数字で確認してください。</h2>
+    <div class="rule" style="background:var(--blue2)"></div>
+    <div class="trust-nums">
+      <div class="trust-num">
+        <div class="big">3<span>年</span></div>
+        <p>平均勤続年数（製造・組込系エンジニア）<br>業界平均より長く、定着している</p>
+      </div>
+      <div class="trust-num">
+        <div class="big">2〜3<span>週</span></div>
+        <p>入社後アサインまでの平均期間<br>研修期間中も給与支給</p>
+      </div>
+      <div class="trust-num">
+        <div class="big">140<span>+</span></div>
+        <p>取引先・参画中プロジェクト数<br>製造業に特化した案件が中心</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONDITIONS -->
+<section class="section" id="conditions">
+  <div class="container">
+    <div class="label">// CONDITIONS</div>
+    <h2 class="section-title">給与・待遇。<br>確認してから判断してください。</h2>
+    <div class="rule"></div>
+    <p class="section-lead">応募前に知っておくべき条件を、そのまま書きます。</p>
+
+    <div class="conditions-grid">
+      <div class="cond-card">
+        <div class="cond-card-header">
+          <span class="cond-icon">💴</span>
+          <h4>給与レンジ</h4>
+        </div>
+        <p>
+          月給 <strong>22万円〜28万円</strong>（経験・スキルにより決定）<br>
+          賞与：年2回<br>
+          昇給：年1回（グレード昇格による随時昇給あり）
+        </p>
+      </div>
+      <div class="cond-card">
+        <div class="cond-card-header">
+          <span class="cond-icon">📍</span>
+          <h4>勤務エリア</h4>
+        </div>
+        <p>
+          客先は<strong>関東・東海エリア</strong>が中心。<br>
+          転居を伴う異動はありません。<br>
+          配属前面談で通勤可能範囲を確認します。
+        </p>
+      </div>
+      <div class="cond-card">
+        <div class="cond-card-header">
+          <span class="cond-icon">🕐</span>
+          <h4>勤務時間・休日</h4>
+        </div>
+        <p>
+          客先に準じます（目安：8:30〜17:30）<br>
+          土日祝休み（客先カレンダーによる）<br>
+          年間休日：120日程度
+        </p>
+      </div>
+      <div class="cond-card">
+        <div class="cond-card-header">
+          <span class="cond-icon">📋</span>
+          <h4>雇用形態・試用期間</h4>
+        </div>
+        <p>
+          正社員（試用期間3ヶ月）<br>
+          試用期間中も給与・待遇は同条件<br>
+          社会保険完備
+        </p>
+      </div>
+    </div>
+
+    <div class="cond-highlight">
+      <strong>待機期間中の給与について：</strong><br>
+      入社後アサインまでの研修・準備期間も、給与は通常通り支給されます。過去1年の実績では、平均2〜3週間以内に現場へ配属されています。「待機中は無給になる」ということはありません。
+    </div>
+  </div>
+</section>
+
+<!-- INTERVIEW -->
+<section class="section" id="interview">
+  <div class="container">
+    <div class="label">// MEMBER VOICE</div>
+    <h2 class="section-title">先輩エンジニアの声。</h2>
+    <div class="rule"></div>
+    <div class="interview-row">
+      <div class="iv-card">
+        <img src="images/interview-list02-2.jpg" alt="先輩エンジニア">
+        <div class="iv-body">
+          <div class="iv-role">CONTROL ENGINEER</div>
+          <div class="iv-meta">入社4年目｜前職：機械部品メーカー（製造オペレーター2年）</div>
+          <h4>制御系から入って、いまは設計にも関わっています</h4>
+          <p>最初はPLCの読み方すら分からなかった。現場で少しずつ覚えて、今は図面を見ながら制御の話ができるようになった。</p>
+        </div>
+      </div>
+      <div class="iv-card">
+        <img src="images/interview-list04.jpg" alt="先輩エンジニア">
+        <div class="iv-body">
+          <div class="iv-role">EMBEDDED ENGINEER</div>
+          <div class="iv-meta">入社2年目｜前職：電子機器メーカー（品質検査1年）</div>
+          <h4>学校でC言語をやっていたので、思ったより早く現場に馴染めた</h4>
+          <p>組込みは覚えることが多いと思っていたが、チームで動くので一人で詰まることが少ない。</p>
+        </div>
+      </div>
+      <div class="iv-card">
+        <img src="images/interview-list05.jpg" alt="先輩エンジニア">
+        <div class="iv-body">
+          <div class="iv-role">MECHANICAL SUPPORT</div>
+          <div class="iv-meta">入社3年目｜前職：食品工場（ライン作業員2年）</div>
+          <h4>前職は製造現場。その経験がここでも生きている</h4>
+          <p>現場の段取りや空気感が最初からイメージできたので、設計者とのコミュニケーションが自然にできた。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section" id="cta">
+  <div class="container">
+    <div class="cta-inner">
+      <div class="label" style="color:rgba(255,255,255,.4)">// ENTRY</div>
+      <h2 class="section-title">まだ応募を決めていなくても<br>大丈夫です。</h2>
+      <p class="section-lead">必要な情報は見ましたか。判断できたなら次のステップへ。<br>迷っているなら、まずカジュアル面談から話を聞いてください。</p>
+      <div class="cta-steps">
+        <div class="cta-step"><span class="step-n">1</span>エントリー（5分）</div>
+        <div class="cta-step"><span class="step-n">2</span>担当者より連絡（3営業日以内）</div>
+        <div class="cta-step"><span class="step-n">3</span>面接1回（オンライン可）</div>
+      </div>
+      <div class="cta-btns">
+        <a href="#" class="btn-cta">エントリーフォームへ</a>
+        <a href="#" class="btn-cta-sub">カジュアル面談を申し込む（30分・無料）</a>
+      </div>
+      <p class="cta-foot">SPI・筆記試験はありません。転職活動中であることは秘密厳守です。</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <img src="images/company-name-header_white.png" alt="GRAVITY">
+    <p>© GRAVITY Co., Ltd. - Sample05 / All Rights Reserved.</p>
+  </div>
+</footer>
+
+<script>
+/* nav shadow on scroll */
+const nav = document.querySelector('nav');
+window.addEventListener('scroll', () => {
+  nav.style.boxShadow = window.scrollY > 20 ? '0 2px 14px rgba(13,35,64,.1)' : 'none';
+}, { passive: true });
+
+/* timeline fade-in on scroll */
+const tlItems = document.querySelectorAll('.tl-item');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'translateY(0)';
+      obs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+tlItems.forEach((el, i) => {
+  el.style.cssText += `opacity:0;transform:translateY(16px);transition:opacity .5s ease ${i*.12}s,transform .5s ease ${i*.12}s`;
+  obs.observe(el);
+});
+</script>
+</body>
+</html>
+
+
+
