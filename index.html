@@ -46,11 +46,14 @@
     /* ─── Base ─────────────────────────────────────── */
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
+    html, body { width: 100%; }
     body {
       font-family: 'Noto Sans JP', sans-serif;
       background: #07110e;
       color: #d6e1db;
       overflow-x: hidden;
+      -webkit-text-size-adjust: 100%;
+      text-rendering: optimizeLegibility;
     }
 
     /* ─── Glassmorphism Nav ─────────────────────────── */
@@ -59,6 +62,8 @@
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
       border-bottom: 1px solid rgba(143,184,171,0.14);
+      isolation: isolate;
+      transform: translateZ(0);
     }
 
     /* ─── Hero ──────────────────────────────────────── */
@@ -68,7 +73,11 @@
         linear-gradient(160deg, rgba(47,107,93,0.08) 0%, rgba(7,17,14,0.2) 52%, transparent 72%),
         linear-gradient(0deg, rgba(7,17,14,0.98) 0%, rgba(7,17,14,0.64) 55%, rgba(7,17,14,0.94) 100%),
         url('https://images.unsplash.com/photo-1518770660439-4636190af475?w=1600&q=80') center/cover no-repeat;
+      min-height: 100vh;
       min-height: 100svh;
+      min-height: 100dvh;
+      background-attachment: scroll;
+      isolation: isolate;
     }
 
     /* ─── Grid texture ──────────────────────────────── */
@@ -232,6 +241,7 @@
     #mobile-menu {
       transition: max-height 0.3s ease, opacity 0.3s ease;
       overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
     }
 
     a:focus-visible,
@@ -293,6 +303,46 @@
       color: #edf3ef;
     }
 
+    @supports (-webkit-touch-callout: none) {
+      #main-nav {
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        background: rgba(7,17,14,0.96);
+      }
+
+      #hero {
+        background:
+          linear-gradient(180deg, rgba(7,17,14,0.94) 0%, rgba(7,17,14,0.8) 58%, rgba(7,17,14,0.92) 100%),
+          url('https://images.unsplash.com/photo-1518770660439-4636190af475?w=1600&q=80') center/cover no-repeat;
+      }
+
+      .fade-up,
+      .fade-up.visible {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+
+      .card,
+      .stat-card,
+      .cta-card-strong,
+      .timeline-step::before {
+        box-shadow: none;
+      }
+    }
+
+    @media (hover: none), (pointer: coarse) {
+      .card:hover,
+      .btn-primary:hover,
+      .btn-ghost:hover {
+        transform: none;
+      }
+
+      .card:hover {
+        box-shadow: none;
+      }
+    }
+
     @media (max-width: 639px) {
       #hero .btn-primary,
       #hero .btn-ghost {
@@ -307,6 +357,10 @@
       .cta-icon {
         font-size: 0.68rem;
         letter-spacing: 0.1em;
+      }
+
+      #hero {
+        background-position: center top;
       }
     }
   </style>
@@ -357,7 +411,7 @@
     </div>
 
     <!-- Mobile menu -->
-    <div id="mobile-menu" class="md:hidden overflow-hidden max-h-0 opacity-0 border-t border-white/5" style="background:rgba(9,13,19,0.97); max-height:calc(100vh - 4rem)">
+    <div id="mobile-menu" class="md:hidden overflow-hidden max-h-0 opacity-0 border-t border-white/5" style="background:rgba(7,17,14,0.97); max-height:0">
       <div class="px-4 py-4 flex flex-col gap-4">
         <a href="#technology" class="text-g-light text-sm py-2 border-b border-white/5">技術分野</a>
         <a href="#business"   class="text-g-light text-sm py-2 border-b border-white/5">事業領域</a>
@@ -1202,10 +1256,20 @@
   const iconClose = document.getElementById('icon-close');
   let menuOpen = false;
 
+  function getMenuMaxHeight() {
+    return Math.max(window.innerHeight - 64, 240) + 'px';
+  }
+
+  function syncMobileMenuHeight() {
+    if (menuOpen) {
+      menu.style.maxHeight = getMenuMaxHeight();
+    }
+  }
+
   toggle.addEventListener('click', () => {
     menuOpen = !menuOpen;
     if (menuOpen) {
-      menu.style.maxHeight = 'calc(100vh - 4rem)';
+      menu.style.maxHeight = getMenuMaxHeight();
       menu.style.opacity   = '1';
       iconOpen.classList.add('hidden');
       iconClose.classList.remove('hidden');
@@ -1226,6 +1290,9 @@
       iconClose.classList.add('hidden');
     });
   });
+
+  window.addEventListener('resize', syncMobileMenuHeight, { passive: true });
+  window.addEventListener('orientationchange', syncMobileMenuHeight, { passive: true });
 
   // ─── Scroll fade-in ────────────────────────
   const observer = new IntersectionObserver((entries) => {
