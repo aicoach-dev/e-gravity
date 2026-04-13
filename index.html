@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>e-gravity.co.jp | Corporate Renewal</title>
+    <meta
+      name="description"
+      content="製造業の現場で使われる組込・制御・ハード領域の技術に触れながら、長期で着実に力をつける。Gravityの採用訴求を強化したコーポレートサイト。"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              ink: "#06162D",
+              navy: "#0C2446",
+              sky: "#D9F0FF",
+              mist: "#89C8F5",
+              line: "#24456C",
+              glow: "#F08A24",
+            },
+            boxShadow: {
+              soft: "0 20px 60px rgba(4, 19, 39, 0.22)",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background:
+          radial-gradient(circle at top left, rgba(137, 200, 245, 0.18), transparent 32%),
+          radial-gradient(circle at top right, rgba(240, 138, 36, 0.12), transparent 26%),
+          linear-gradient(180deg, #04101f 0%, #071a31 50%, #05111f 100%);
+      }
+
+      .glass {
+        background: rgba(10, 30, 56, 0.58);
+        backdrop-filter: blur(18px);
+      }
+
+      .fade-up {
+        opacity: 0;
+        transform: translateY(24px);
+        transition: opacity 0.7s ease, transform 0.7s ease;
+      }
+
+      .fade-up.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body class="text-white antialiased">
+    <header class="sticky top-0 z-50 px-4 pt-4">
+      <div class="glass mx-auto flex max-w-7xl items-center justify-between rounded-lg border border-white/20 px-4 py-3 shadow-soft md:px-6">
+        <a href="#top" class="text-lg font-semibold tracking-[0.08em] text-sky">GRAVITY</a>
+        <nav class="hidden items-center gap-6 text-sm text-slate-200 lg:flex">
+          <a class="transition hover:text-white" href="#technology">技術分野</a>
+          <a class="transition hover:text-white" href="#domains">事業領域</a>
+          <a class="transition hover:text-white" href="#culture">文化</a>
+          <a class="transition hover:text-white" href="#benefits">福利厚生</a>
+          <a class="transition hover:text-white" href="#career">キャリア</a>
+          <a class="transition hover:text-white" href="#stories">社員ストーリー</a>
+        </nav>
+        <a
+          href="#cta"
+          class="rounded-md border border-glow/60 bg-glow px-4 py-2 text-sm font-medium text-white transition hover:-translate-y-0.5 hover:bg-orange-500"
+          >まずは話を聞く</a
+        >
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="relative overflow-hidden px-4 pb-16 pt-12 md:px-8 md:pb-24 md:pt-20">
+        <div class="absolute inset-0 opacity-20">
+          <img
+            src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1600&q=80"
+            alt="技術チームの打ち合わせ風景"
+            class="h-full w-full object-cover"
+          />
+        </div>
+        <div class="absolute inset-0 bg-[linear-gradient(120deg,rgba(4,16,31,0.97),rgba(7,26,49,0.84),rgba(4,16,31,0.95))]"></div>
+        <div class="relative mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-end lg:gap-10">
+          <div class="fade-up max-w-3xl">
+            <span class="inline-flex rounded-full border border-sky/30 bg-sky/10 px-3 py-1 text-xs font-medium tracking-[0.14em] text-sky">
+              MANUFACTURING / EMBEDDED / CONTROL / HARDWARE
+            </span>
+            <h1 class="mt-5 text-3xl font-semibold leading-[1.15] text-white sm:text-4xl md:mt-6 md:text-6xl">
+              製造業の現場で使われ続ける技術に触れながら、<br />
+              組込・制御・ハード領域で着実に力をつける。
+            </h1>
+            <p class="mt-5 max-w-3xl text-sm leading-7 text-slate-200 sm:text-base md:mt-6 md:text-lg md:leading-8">
+              第二新卒や微経験からでも、現場理解と基礎スキルを積み上げながら、長期で専門性を深めていける。Gravityは、派手さよりも実務で使える力が残るキャリアを大切にしています。
+            </p>
+            <div class="mt-7 grid grid-cols-2 gap-3 sm:flex sm:flex-wrap">
+              <a href="#technology" class="rounded-md bg-white px-4 py-3 text-center text-sm font-medium text-ink transition hover:-translate-y-0.5 sm:px-5">
+                仕事を知る
+              </a>
+              <a href="#culture" class="rounded-md border border-white/25 bg-white/10 px-4 py-3 text-center text-sm font-medium text-white transition hover:-translate-y-0.5 hover:bg-white/15 sm:px-5">
+                文化を知る
+              </a>
+              <a href="#career" class="rounded-md border border-sky/30 bg-sky/10 px-4 py-3 text-center text-sm font-medium text-sky transition hover:-translate-y-0.5 hover:bg-sky/15 sm:px-5">
+                成長を知る
+              </a>
+              <a href="#cta" class="rounded-md border border-glow/60 bg-glow/90 px-4 py-3 text-center text-sm font-medium text-white transition hover:-translate-y-0.5 hover:bg-orange-500 sm:px-5">
+                話を聞く
+              </a>
+            </div>
+          </div>
+          <div class="fade-up lg:justify-self-end">
+            <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
+              <div class="rounded-lg border border-white/10 bg-white/10 p-5 backdrop-blur-sm">
+                <p class="text-xs tracking-[0.14em] text-sky">WHO</p>
+                <p class="mt-3 text-2xl font-semibold">第二新卒・微経験向け</p>
+                <p class="mt-2 text-sm leading-7 text-slate-300">基礎から現場理解を積み上げ、担当領域を持てるようになる入口を用意します。</p>
+              </div>
+              <div class="rounded-lg border border-white/10 bg-white/10 p-5 backdrop-blur-sm">
+                <p class="text-xs tracking-[0.14em] text-sky">FIELD</p>
+                <p class="mt-3 text-2xl font-semibold">製造業の実務に近い</p>
+                <p class="mt-2 text-sm leading-7 text-slate-300">机上だけで終わらない、組込・制御・ハードの仕事に日々触れられます。</p>
+              </div>
+              <div class="rounded-lg border border-white/10 bg-white/10 p-5 backdrop-blur-sm">
+                <p class="text-xs tracking-[0.14em] text-sky">CAREER</p>
+                <p class="mt-3 text-2xl font-semibold">長期で専門性が残る</p>
+                <p class="mt-2 text-sm leading-7 text-slate-300">1年目の基礎から、5年目以降の設計や中核業務まで見通しやすいキャリアです。</p>
+              </div>
+              <div class="rounded-lg border border-glow/25 bg-glow/10 p-5 backdrop-blur-sm">
+                <p class="text-xs tracking-[0.14em] text-orange-200">ENTRY PATH</p>
+                <p class="mt-3 text-2xl font-semibold">応募前の相談もできる</p>
+                <p class="mt-2 text-sm leading-7 text-slate-200">まずは話を聞く、カジュアルに相談する、といった入口から始められます。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="strengths" class="px-4 py-20 md:px-8">
+        <div class="mx-auto max-w-7xl">
+          <div class="fade-up max-w-2xl">
+            <p class="text-sm font-medium tracking-[0.14em] text-mist">3 POINTS</p>
+            <h2 class="mt-3 text-3xl font-semibold md:text-4xl">応募前に伝えたい、3つの軸。</h2>
+          </div>
+          <div class="mt-10 grid gap-5 md:grid-cols-3">
+            <article class="fade-up rounded-lg border border-white/10 bg-white/5 p-6 shadow-soft transition hover:-translate-y-1 hover:border-sky/40">
+              <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-sky/15 text-xl text-sky">01</div>
+              <h3 class="mt-5 text-2xl font-semibold">製造業</h3>
+              <p class="mt-3 text-sm leading-7 text-slate-300">ものづくりの現場に近いテーマで、技術がどう使われるかまで見通しながら働けます。</p>
+            </article>
+            <article class="fade-up rounded-lg border border-white/10 bg-white/5 p-6 shadow-soft transition hover:-translate-y-1 hover:border-sky/40">
+              <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-sky/15 text-xl text-sky">02</div>
+              <h3 class="mt-5 text-2xl font-semibold">組込・制御・ハード</h3>
+              <p class="mt-3 text-sm leading-7 text-slate-300">ソフトだけに閉じず、ハードや制御も含めて現場の仕組みを理解しながら力をつけます。</p>
+            </article>
+            <article class="fade-up rounded-lg border border-white/10 bg-white/5 p-6 shadow-soft transition hover:-translate-y-1 hover:border-glow/40">
+              <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-glow/15 text-xl text-glow">03</div>
+              <h3 class="mt-5 text-2xl font-semibold">長期成長</h3>
+              <p class="mt-3 text-sm leading-7 text-slate-300">短期の派手さより、担当を持ち、設計に関わり、専門性を残していける成長を重視します。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="technology" class="border-y border-white/10 bg-white/5 px-4 py-18 md:px-8 md:py-20">
+        <div class="mx-auto max-w-7xl">
+          <div class="fade-up flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <div class="max-w-2xl">
+              <p class="text-sm font-medium tracking-[0.14em] text-mist">TECHNOLOGY</p>
+              <h2 class="mt-3 text-3xl font-semibold md:text-4xl">製造業の現場で使われる技術を、具体的に。</h2>
+            </div>
+            <p class="max-w-xl text-sm leading-7 text-slate-300">抽象的な技術紹介ではなく、組込、制御、ハード、評価まで、仕事の輪郭が見える言葉で整理しています。</p>
+          </div>
+          <div class="mt-10 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+            <article class="fade-up group flex h-full flex-col rounded-lg border border-white/10 bg-[#081A32] p-6 transition hover:-translate-y-1 hover:border-sky/40">
+              <div class="text-2xl text-sky">●</div>
+              <h3 class="mt-4 text-xl font-semibold">組込ソフトウェア</h3>
+              <p class="mt-3 text-sm leading-7 text-slate-300">製造業の機器や装置で動くソフトウェアを実装し、安定動作を支える仕事。</p>
+              <p class="mt-4 text-sm leading-7 text-slate-400 opacity-80 transition group-hover:text-sky group-hover:opacity-100">現場で長く使われる前提のため、品質と再現性を重視した実装が中心です。</p>
+            </article>
+            <article class="fade-up group flex h-full flex-col rounded-lg border border-white/10 bg-[#081A32] p-6 transition hover:-translate-y-1 hover:border-sky/40">
+              <div class="text-2xl text-sky">◎</div>
+              <h3 class="mt-4 text-xl font-semibold">制御設計</h3>
+              <p class="mt-3 text-sm leading-7 text-slate-300">装置や機器が意図した通りに動くよう、挙動を考えながら制御を設計する仕事。</p>
+              <p class="mt-4 text-sm leading-7 text-slate-400 opacity-80 transition group-hover:text-sky group-hover:opacity-100">仕様理解、動作確認、改善の積み重ねで精度を高めていきます。</p>
+            </article>
+            <article class="fade-up group flex h-full flex-col rounded-lg border border-white/10 bg-[#081A32] p-6 transition hover:-translate-y-1 hover:border-sky/40">
+              <div class="text-2xl text-sky">◇</div>
+              <h3 class="mt-4 text-xl font-semibold">ハード連携</h3>
+              <p class="mt-3 text-sm leading-7 text-slate-300">基板、装置、周辺機器とのつながりを理解しながら、動く仕組み全体を見る仕事。</p>
+              <p class="mt-4 text-sm leading-7 text-slate-400 opacity-80 transition group-hover:text-sky group-hover:opacity-100">ソフトだけで閉じず、ハード領域との接点を持ちながら経験を広げられます。</p>
+            </article>
+            <article class="fade-up group flex h-full flex-col rounded-lg border border-white/10 bg-[#081A32] p-6 transition hover:-translate-y-1 hover:border-sky/40">
+              <div class="text-2xl text-sky">△</div>
+              <h3 class="mt-4 text-xl font-semibold">評価・検証</h3>
+              <p class="mt-3 text-sm leading-7 text-slate-300">実機評価や試験を通じて、製造業の現場で使える品質に仕上げる仕事。</p>
+              <p class="mt-4 text-sm leading-7 text-slate-400 opacity-80 transition group-hover:text-sky group-hover:opacity-100">結果の確認だけでなく、どこを直すべきか考える視点が身につきます。</p>
+            </article>
+            <article class="fade-up group flex h-full flex-col rounded-lg border border-white/10 bg-[#081A32] p-6 transition hover:-translate-y-1 hover:border-glow/40">
+              <div class="text-2xl text-glow">□</div>
+              <h3 class="mt-4 text-xl font-semibold">製造現場向けアプリケーション</h3>
+              <p class="mt-3 text-sm leading-7 text-slate-300">製造現場の運用や確認作業を支えるアプリケーションを設計・実装する仕事。</p>
+              <p class="mt-4 text-sm leading-7 text-slate-400 opacity-80 transition group-hover:text-glow group-hover:opacity-100">使う人の流れを理解しながら、実務に沿った形へ落とし込みます。</p>
+            </article>
+            <article class="fade-up group flex h-full flex-col rounded-lg border border-white/10 bg-[#081A32] p-6 transition hover:-translate-y-1 hover:border-glow/40">
+              <div class="text-2xl text-glow">✦</div>
+              <h3 class="mt-4 text-xl font-semibold">プロジェクト推進</h3>
+              <p class="mt-3 text-sm leading-7 text-slate-300">技術、品質、進行を整理しながら、現場で使える形まで前に進める仕事。</p>
+              <p class="mt-4 text-sm leading-7 text-slate-400 opacity-80 transition group-hover:text-glow group-hover:opacity-100">経験を積むほど、担当範囲や周囲との連携の幅が広がっていきます。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="domains" class="px-4 py-18 md:px-8 md:py-20">
+        <div class="mx-auto max-w-7xl">
+          <div class="fade-up max-w-2xl">
+            <p class="text-sm font-medium tracking-[0.14em] text-mist">DOMAINS</p>
+            <h2 class="mt-3 text-3xl font-semibold md:text-4xl">事業領域は、明快に3つへ整理。</h2>
+          </div>
+          <div class="mt-10 grid gap-5 lg:grid-cols-3">
+            <article class="fade-up overflow-hidden rounded-lg border border-white/10 bg-white/5">
+              <img src="https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=900&q=80" alt="モビリティ開発のイメージ" class="h-56 w-full object-cover" />
+              <div class="p-6">
+                <h3 class="text-2xl font-semibold">Mobility</h3>
+                <p class="mt-3 text-sm leading-7 text-slate-300">車載・移動体に関わる技術を通じて、動く仕組みの信頼性を支えます。</p>
+              </div>
+            </article>
+            <article class="fade-up overflow-hidden rounded-lg border border-white/10 bg-white/5">
+              <img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=900&q=80" alt="ライフサイエンス分野の研究設備イメージ" class="h-56 w-full object-cover" />
+              <div class="p-6">
+                <h3 class="text-2xl font-semibold">Life Science</h3>
+                <p class="mt-3 text-sm leading-7 text-slate-300">精度と再現性が求められる領域で、解析や制御の知見を生かします。</p>
+              </div>
+            </article>
+            <article class="fade-up overflow-hidden rounded-lg border border-white/10 bg-white/5">
+              <img src="https://images.unsplash.com/photo-1567789884554-0b844b597180?auto=format&fit=crop&w=900&q=80" alt="製造業の生産設備イメージ" class="h-56 w-full object-cover" />
+              <div class="p-6">
+                <h3 class="text-2xl font-semibold">Manufacture</h3>
+                <p class="mt-3 text-sm leading-7 text-slate-300">製造現場に近いテーマで、品質や効率に直結する技術を積み上げます。</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="culture" class="border-y border-white/10 bg-white/5 px-4 py-18 md:px-8 md:py-20">
+        <div class="mx-auto max-w-7xl">
+          <div class="fade-up max-w-2xl">
+            <p class="text-sm font-medium tracking-[0.14em] text-mist">CULTURE</p>
+            <h2 class="mt-3 text-3xl font-semibold md:text-4xl">働き方の雰囲気を、ひと目でわかる形に。</h2>
+          </div>
+          <div class="mt-10 grid gap-5 lg:grid-cols-[1.1fr_0.9fr]">
+            <article class="fade-up rounded-lg border border-white/10 bg-[#07182D] p-6">
+              <h3 class="text-2xl font-semibold">Gravityの価値観</h3>
+              <ul class="mt-5 space-y-3 text-sm leading-7 text-slate-200">
+                <li>現場理解を重視し、技術がどう使われるかまで見る</li>
+                <li>長期視点で育成し、担当領域を少しずつ広げていく</li>
+                <li>派手さより実力を重視し、品質と再現性に向き合う</li>
+                <li>一人で抱え込まず、相談しながら進めるチーム文化がある</li>
+              </ul>
+            </article>
+            <article class="fade-up rounded-lg border border-sky/20 bg-sky/10 p-6">
+              <h3 class="text-2xl font-semibold text-sky">向いている人</h3>
+              <ul class="mt-5 space-y-3 text-sm leading-7 text-slate-100">
+                <li>製造業やものづくりの現場に近い技術を学びたい人</li>
+                <li>組込、制御、ハードを含めて理解を広げたい人</li>
+                <li>短期の派手さより、長く積み上がる実力を重視したい人</li>
+                <li>第二新卒や微経験から、着実に担当を持てるようになりたい人</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="benefits" class="px-4 py-18 md:px-8 md:py-20">
+        <div class="mx-auto max-w-7xl">
+          <div class="fade-up max-w-2xl">
+            <p class="text-sm font-medium tracking-[0.14em] text-mist">BENEFITS</p>
+            <h2 class="mt-3 text-3xl font-semibold md:text-4xl">安心感につながる制度を、短く整理。</h2>
+          </div>
+          <div class="mt-10 grid gap-5 lg:grid-cols-3">
+            <article class="fade-up rounded-lg border border-sky/20 bg-sky/10 p-6 shadow-soft">
+              <h3 class="text-2xl font-semibold text-sky">学ぶ</h3>
+              <ul class="mt-5 space-y-3 text-sm leading-7 text-slate-100">
+                <li>研修</li>
+                <li>学習支援</li>
+                <li>知識共有</li>
+              </ul>
+            </article>
+            <article class="fade-up rounded-lg border border-white/10 bg-white/5 p-6 shadow-soft">
+              <h3 class="text-2xl font-semibold">働く</h3>
+              <ul class="mt-5 space-y-3 text-sm leading-7 text-slate-100">
+                <li>長期で働きやすい前提</li>
+                <li>継続しやすい体制</li>
+                <li>腰を据えて成長できる</li>
+              </ul>
+            </article>
+            <article class="fade-up rounded-lg border border-glow/30 bg-glow/10 p-6 shadow-soft">
+              <h3 class="text-2xl font-semibold text-orange-200">暮らす</h3>
+              <ul class="mt-5 space-y-3 text-sm leading-7 text-slate-100">
+                <li>休暇制度</li>
+                <li>生活を支える制度</li>
+                <li>続けやすさへの配慮</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="career" class="border-y border-white/10 bg-white/5 px-4 py-18 md:px-8 md:py-20">
+        <div class="mx-auto max-w-7xl">
+          <div class="fade-up max-w-3xl">
+            <p class="text-sm font-medium tracking-[0.14em] text-mist">CAREER PATH</p>
+            <h2 class="mt-3 text-3xl font-semibold md:text-4xl">第二新卒や微経験からでも、何ができるようになるかが見える。</h2>
+          </div>
+          <div class="mt-10 space-y-4 md:mt-12 md:space-y-5">
+            <article class="fade-up relative rounded-lg border border-white/10 bg-[#06182F] p-5 md:p-6 md:pl-20">
+              <div class="mb-4 md:absolute md:left-6 md:top-6">
+                <span class="inline-flex rounded-full border border-sky/25 bg-sky/10 px-3 py-1 text-xs tracking-[0.14em] text-sky">1年目</span>
+              </div>
+              <h3 class="text-xl font-semibold md:text-2xl">現場理解と基礎スキルを固める</h3>
+              <p class="mt-3 text-sm leading-7 text-slate-200">仕事の進め方、製造業の現場感覚、組込・制御・ハードの基本を理解する段階です。</p>
+              <ul class="mt-4 space-y-2 text-sm leading-7 text-slate-300">
+                <li>できるようになること: 用語理解、基本実装、評価の流れの把握</li>
+                <li>任されること: 先輩のサポートのもとでの実装や試験</li>
+              </ul>
+            </article>
+            <article class="fade-up relative rounded-lg border border-sky/20 bg-[linear-gradient(180deg,rgba(137,200,245,0.15),rgba(6,24,47,0.88))] p-5 md:p-6 md:pl-20">
+              <div class="mb-4 md:absolute md:left-6 md:top-6">
+                <span class="inline-flex rounded-full border border-sky/25 bg-sky/10 px-3 py-1 text-xs tracking-[0.14em] text-sky">3年目</span>
+              </div>
+              <h3 class="text-xl font-semibold md:text-2xl">担当領域を持ち、自走し始める</h3>
+              <p class="mt-3 text-sm leading-7 text-slate-100">任された範囲を自分で進め、周囲と相談しながら判断できる場面が増えていきます。</p>
+              <ul class="mt-4 space-y-2 text-sm leading-7 text-slate-200">
+                <li>できるようになること: 担当機能の実装、評価計画、課題の切り分け</li>
+                <li>任されること: 小規模な担当領域、改善提案、対話しながらの進行</li>
+              </ul>
+            </article>
+            <article class="fade-up relative rounded-lg border border-glow/30 bg-[linear-gradient(180deg,rgba(240,138,36,0.12),rgba(6,24,47,0.88))] p-5 md:p-6 md:pl-20">
+              <div class="mb-4 md:absolute md:left-6 md:top-6">
+                <span class="inline-flex rounded-full border border-glow/35 bg-glow/10 px-3 py-1 text-xs tracking-[0.14em] text-orange-200">5年目</span>
+              </div>
+              <h3 class="text-xl font-semibold md:text-2xl">設計や技術の中核に関わる</h3>
+              <p class="mt-3 text-sm leading-7 text-slate-100">実装や評価だけでなく、設計や全体の整合性を見る視点が育ち、技術の中核に近づきます。</p>
+              <ul class="mt-4 space-y-2 text-sm leading-7 text-slate-200">
+                <li>できるようになること: 設計判断、品質観点の整理、周囲との技術連携</li>
+                <li>任されること: 中核機能、後輩支援、技術的な改善の主担当</li>
+              </ul>
+            </article>
+            <article class="fade-up relative rounded-lg border border-white/10 bg-[#06182F] p-5 md:p-6 md:pl-20">
+              <div class="mb-4 md:absolute md:left-6 md:top-6">
+                <span class="inline-flex rounded-full border border-sky/25 bg-sky/10 px-3 py-1 text-xs tracking-[0.14em] text-sky">10年目</span>
+              </div>
+              <h3 class="text-xl font-semibold md:text-2xl">専門性を深めるか、リーダーとして広げる</h3>
+              <p class="mt-3 text-sm leading-7 text-slate-200">自分の強みを軸に、専門性をさらに深める道と、チームを支える道の両方が見えてきます。</p>
+              <ul class="mt-4 space-y-2 text-sm leading-7 text-slate-300">
+                <li>できるようになること: 専門領域の中核対応、技術方針整理、人の成長支援</li>
+                <li>任されること: 専門性の牽引、技術判断、チームや案件の推進</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="stories" class="px-4 py-18 md:px-8 md:py-20">
+        <div class="mx-auto max-w-7xl">
+          <div class="fade-up max-w-3xl">
+            <p class="text-sm font-medium tracking-[0.14em] text-mist">STORIES</p>
+            <h2 class="mt-3 text-3xl font-semibold md:text-4xl">成功談ではなく、苦労からどう変わったかを伝える。</h2>
+          </div>
+          <div class="mt-10 grid gap-5 lg:grid-cols-3">
+            <article class="fade-up rounded-lg border border-white/10 bg-white/5 p-6">
+              <p class="text-sm text-sky">制御開発 / 3年目</p>
+              <h3 class="mt-3 text-2xl font-semibold">最初は挙動の意味がわからず、確認作業だけで精一杯だった。</h3>
+              <p class="mt-4 text-sm leading-7 text-slate-300">苦労: 実機で起きていることと仕様書のつながりが見えにくかった。</p>
+              <p class="mt-2 text-sm leading-7 text-slate-300">変化: 先輩との確認や試験の積み重ねで、どこを見るべきかが少しずつわかってきた。</p>
+              <p class="mt-2 text-sm leading-7 text-slate-300">現在: 今は担当範囲の挙動を見ながら、改善案まで考えられるようになっている。</p>
+            </article>
+            <article class="fade-up rounded-lg border border-white/10 bg-white/5 p-6">
+              <p class="text-sm text-sky">評価・検証 / 5年目</p>
+              <h3 class="mt-3 text-2xl font-semibold">試験項目をこなすだけでは、品質は見えてこなかった。</h3>
+              <p class="mt-4 text-sm leading-7 text-slate-300">苦労: 結果を並べても、どこに違和感があるか自分で判断できなかった。</p>
+              <p class="mt-2 text-sm leading-7 text-slate-300">変化: 試験の意図や過去の不具合を学び、見方そのものが変わった。</p>
+              <p class="mt-2 text-sm leading-7 text-slate-300">現在: 今は品質観点を整理しながら、改善提案までつなげられるようになっている。</p>
+            </article>
+            <article class="fade-up rounded-lg border border-white/10 bg-white/5 p-6">
+              <p class="text-sm text-orange-200">ソフトウェア開発 / 6年目</p>
+              <h3 class="mt-3 text-2xl font-semibold">画面を作るだけでは、現場で使いやすいとは言えなかった。</h3>
+              <p class="mt-4 text-sm leading-7 text-slate-300">苦労: 実装はできても、運用の流れに合っていない場面があった。</p>
+              <p class="mt-2 text-sm leading-7 text-slate-300">変化: 利用者の動きや製造現場の流れを意識して設計するようになった。</p>
+              <p class="mt-2 text-sm leading-7 text-slate-300">現在: 今は仕様だけでなく、現場で使われる形まで見ながら実装できるようになっている。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="cta" class="px-4 pb-18 pt-10 md:px-8 md:pb-24">
+        <div class="mx-auto max-w-7xl">
+          <div class="fade-up rounded-lg border border-white/10 bg-[linear-gradient(135deg,rgba(10,30,56,0.9),rgba(17,55,95,0.85),rgba(240,138,36,0.18))] p-8 shadow-soft md:p-12">
+            <p class="text-sm font-medium tracking-[0.14em] text-sky">CONTACT</p>
+            <h2 class="mt-4 text-3xl font-semibold md:text-5xl">まずは話を聞いてみませんか？</h2>
+            <p class="mt-5 max-w-3xl text-sm leading-7 text-slate-200 md:text-base">
+              いきなり応募ではなく、仕事内容や働き方を知るところからでも大丈夫です。気になる点があれば、カジュアルに相談できます。
+            </p>
+            <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <a href="mailto:info@e-gravity.co.jp?subject=%E3%81%BE%E3%81%9A%E3%81%AF%E8%A9%B1%E3%82%92%E8%81%9E%E3%81%8D%E3%81%9F%E3%81%84" class="rounded-md bg-white px-5 py-3 text-center text-sm font-medium text-ink transition hover:-translate-y-0.5">まずは話を聞く</a>
+              <a href="mailto:info@e-gravity.co.jp?subject=%E3%82%AB%E3%82%B8%E3%83%A5%E3%82%A2%E3%83%AB%E7%9B%B8%E8%AB%87" class="rounded-md border border-glow/60 bg-glow/90 px-5 py-3 text-center text-sm font-medium text-white transition hover:-translate-y-0.5 hover:bg-orange-500">カジュアルに相談する</a>
+              <a href="mailto:info@e-gravity.co.jp?subject=%E5%BF%9C%E5%8B%9F%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6" class="rounded-md border border-white/20 bg-white/5 px-5 py-3 text-center text-sm font-medium text-white transition hover:-translate-y-0.5 hover:bg-white/10">応募について聞く</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-white/10 bg-[#04101F] px-4 py-10 md:px-8">
+      <div class="mx-auto grid max-w-7xl gap-8 md:grid-cols-[1.1fr_0.9fr]">
+        <div>
+          <p class="text-lg font-semibold tracking-[0.08em] text-sky">GRAVITY</p>
+          <p class="mt-4 max-w-md text-sm leading-7 text-slate-400">
+            製造業の現場に向き合い、組込・制御を軸に技術を積み上げる企業として、落ち着いた信頼感のある体験へ刷新しました。
+          </p>
+        </div>
+        <div class="grid gap-8 sm:grid-cols-2">
+          <div>
+            <p class="text-sm font-medium tracking-[0.12em] text-slate-200">SITE LINK</p>
+            <ul class="mt-4 space-y-3 text-sm text-slate-400">
+              <li><a href="#technology" class="transition hover:text-white">技術分野</a></li>
+              <li><a href="#domains" class="transition hover:text-white">事業領域</a></li>
+              <li><a href="#culture" class="transition hover:text-white">組織文化</a></li>
+              <li><a href="#benefits" class="transition hover:text-white">福利厚生</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="text-sm font-medium tracking-[0.12em] text-slate-200">COMPANY</p>
+            <ul class="mt-4 space-y-3 text-sm text-slate-400">
+              <li>e-gravity.co.jp</li>
+              <li>Corporate Renewal Prototype</li>
+              <li><a href="mailto:info@e-gravity.co.jp" class="transition hover:text-white">info@e-gravity.co.jp</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="mx-auto mt-8 max-w-7xl border-t border-white/10 pt-6 text-xs text-slate-500">
+        © 2026 GRAVITY. All Rights Reserved.
+      </div>
+    </footer>
+
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+            }
+          });
+        },
+        { threshold: 0.15 }
+      );
+
+      document.querySelectorAll(".fade-up").forEach((element) => {
+        observer.observe(element);
+      });
+    </script>
+  </body>
+</html>

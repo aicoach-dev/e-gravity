@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>グラビティ株式会社 | 採用情報</title>
+  <!-- [1] ターゲット表現を微経験・キャリアチェンジまで拡張 -->
+  <meta name="description" content="製造業・組込・制御・ハードウェア領域に特化した技術集団。微経験・キャリアチェンジ・第二新卒歓迎。現場で使われる技術を、長く積み上げる。" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- [6] Bebas Neue を削除 → Noto Serif JP + Noto Sans JP + Space Mono のみ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Noto+Sans+JP:wght@300;400;500;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            /* [10] 公式サイト寄りの暗色ベース + 深いグリーンへ調整 */
+            'g-dark':    '#07110e',
+            'g-navy':    '#0b1a17',
+            'g-mid':     '#102621',
+            'g-steel':   '#18342d',
+            'g-blue':    '#2f6b5d',
+            'g-blue-lt': '#8fb8ab',
+            'g-gold':    '#808b68',
+            'g-light':   '#d6e1db',
+            'g-muted':   '#7b8f87',
+          },
+          fontFamily: {
+            /* [6] Noto Serif JP で信頼感・格調を表現 */
+            display: ['"Noto Serif JP"', 'serif'],
+            body:    ['"Noto Sans JP"', 'sans-serif'],
+            mono:    ['"Space Mono"', 'monospace'],
+          },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* ─── Base ─────────────────────────────────────── */
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      background: #07110e;
+      color: #d6e1db;
+      overflow-x: hidden;
+    }
+
+    /* ─── Glassmorphism Nav ─────────────────────────── */
+    #main-nav {
+      background: rgba(7,17,14,0.82);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(143,184,171,0.14);
+    }
+
+    /* ─── Hero ──────────────────────────────────────── */
+    /* [10] 深いグリーン寄りの暗色オーバーレイへ調整 */
+    #hero {
+      background:
+        linear-gradient(160deg, rgba(47,107,93,0.08) 0%, rgba(7,17,14,0.2) 52%, transparent 72%),
+        linear-gradient(0deg, rgba(7,17,14,0.98) 0%, rgba(7,17,14,0.64) 55%, rgba(7,17,14,0.94) 100%),
+        url('https://images.unsplash.com/photo-1518770660439-4636190af475?w=1600&q=80') center/cover no-repeat;
+      min-height: 100svh;
+    }
+
+    /* ─── Grid texture ──────────────────────────────── */
+    .grid-texture {
+      background-image:
+        linear-gradient(rgba(143,184,171,0.028) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(143,184,171,0.028) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+
+    /* ─── Accent line ───────────────────────────────── */
+    /* [10] 深いグリーンから淡いセージへ */
+    .accent-line {
+      display: inline-block;
+      width: 44px; height: 2px;
+      background: linear-gradient(90deg, #2f6b5d, #8fb8ab);
+      border-radius: 2px;
+      margin-bottom: 0.75rem;
+    }
+
+    /* ─── Section label ─────────────────────────────── */
+    .section-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.63rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #8fb8ab;
+    }
+
+    /* ─── Cards ─────────────────────────────────────── */
+    .card {
+      background: rgba(16,38,33,0.74);
+      border: 1px solid rgba(143,184,171,0.13);
+      border-radius: 8px;
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(143,184,171,0.28);
+      box-shadow: 0 14px 36px rgba(17,39,34,0.34);
+    }
+
+    /* ─── Stat card ─────────────────────────────────── */
+    .stat-card {
+      background: linear-gradient(135deg, rgba(24,52,45,0.7), rgba(16,38,33,0.86));
+      border: 1px solid rgba(143,184,171,0.15);
+      border-radius: 8px;
+    }
+
+    /* ─── CTA buttons ───────────────────────────────── */
+    .btn-primary {
+      background: linear-gradient(135deg, #295a4f, #1d433a);
+      color: #ffffff;
+      font-weight: 700;
+      border-radius: 8px;
+      padding: 0.85rem 1.75rem;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
+      font-family: 'Noto Sans JP', sans-serif;
+      letter-spacing: 0.03em;
+    }
+    .btn-primary:hover { opacity: 0.94; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(17,39,34,0.42); }
+
+    .btn-ghost {
+      border: 1px solid rgba(143,184,171,0.34);
+      color: #8fb8ab;
+      font-weight: 500;
+      border-radius: 8px;
+      padding: 0.85rem 1.75rem;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      transition: background 0.2s, transform 0.2s;
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+    .btn-ghost:hover { background: rgba(143,184,171,0.08); transform: translateY(-2px); }
+    .btn-primary:focus-visible,
+    .btn-ghost:focus-visible {
+      outline: 2px solid rgba(143,184,171,0.88);
+      outline-offset: 2px;
+    }
+
+    .cta-card-subtle {
+      background: rgba(16,38,33,0.8);
+      border-color: rgba(143,184,171,0.14);
+    }
+
+    .cta-card-strong {
+      background: rgba(21,47,40,0.88);
+      border-color: rgba(143,184,171,0.2);
+      box-shadow: 0 10px 28px rgba(8,18,15,0.28);
+    }
+
+    .cta-icon {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      color: #8fb8ab;
+      opacity: 0.85;
+    }
+
+    /* ─── Badge ─────────────────────────────────────── */
+    .badge {
+      display: inline-flex; align-items: center;
+      background: rgba(47,107,93,0.16);
+      border: 1px solid rgba(143,184,171,0.24);
+      color: #8fb8ab;
+      font-size: 0.7rem; font-weight: 600;
+      letter-spacing: 0.06em;
+      padding: 0.22rem 0.7rem;
+      border-radius: 999px;
+    }
+
+    /* ─── Tech tag ──────────────────────────────────── */
+    /* [7] .highlight クラス削除・統一スタイルのみ */
+    .tech-tag {
+      background: rgba(47,107,93,0.12);
+      border: 1px solid rgba(143,184,171,0.18);
+      color: #8fb8ab;
+      font-size: 0.7rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      font-family: 'Space Mono', monospace;
+    }
+
+    /* ─── Timeline ──────────────────────────────────── */
+    .timeline-step {
+      position: relative;
+      padding-left: 2.5rem;
+    }
+    .timeline-step::before {
+      content: '';
+      position: absolute; left: 0; top: 0.45rem;
+      width: 13px; height: 13px;
+      border-radius: 50%;
+      background: #2f6b5d;
+      box-shadow: 0 0 10px rgba(47,107,93,0.34);
+    }
+    .timeline-step::after {
+      content: '';
+      position: absolute; left: 6px; top: 1.4rem;
+      width: 1px;
+      bottom: -1.5rem;
+      background: linear-gradient(180deg, rgba(143,184,171,0.22), transparent);
+    }
+    .timeline-step:last-child::after { display: none; }
+
+    /* ─── Scroll fade-in ────────────────────────────── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* ─── Section divider ───────────────────────────── */
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(143,184,171,0.16), transparent);
+    }
+
+    /* ─── Mobile nav ────────────────────────────────── */
+    #mobile-menu {
+      transition: max-height 0.3s ease, opacity 0.3s ease;
+      overflow-y: auto;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid rgba(143,184,171,0.88);
+      outline-offset: 3px;
+      border-radius: 6px;
+    }
+
+    /* ─── Stat number [6] Noto Serif JP ─────────────── */
+    .num-big {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      line-height: 1;
+      color: #8fb8ab;
+    }
+
+    /* ─── Story card photo placeholder ─────────────── */
+    .photo-placeholder {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: linear-gradient(135deg, #18342d, rgba(143,184,171,0.18));
+      border: 1px solid rgba(143,184,171,0.2);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1.1rem; font-weight: 700;
+      color: #8fb8ab;
+      flex-shrink: 0;
+    }
+
+    /* [10] ストーリー内も浮かないように抑えたセージ色 */
+    .story-stage {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #808b68;
+      margin-bottom: 0.2rem;
+    }
+
+    /* ─── Domain card image ─────────────────────────── */
+    .domain-img {
+      width: 100%; height: 175px; object-fit: cover;
+      border-radius: 8px 8px 0 0; display: block;
+    }
+
+    /* ─── Footer ─────────────────────────────────────── */
+    footer {
+      background: rgba(6,14,12,0.99);
+      border-top: 1px solid rgba(143,184,171,0.1);
+    }
+
+    /* ─── [6] Noto Serif JP 見出し共通クラス ─────────── */
+    .heading-serif {
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 700;
+      line-height: 1.35;
+      letter-spacing: 0.02em;
+      color: #edf3ef;
+    }
+
+    @media (max-width: 639px) {
+      #hero .btn-primary,
+      #hero .btn-ghost {
+        width: 100%;
+        justify-content: center;
+      }
+
+      #hero .section-label + .font-body {
+        line-height: 1.3;
+      }
+
+      .cta-icon {
+        font-size: 0.68rem;
+        letter-spacing: 0.1em;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ══════════════════════════════════════════
+     HEADER / NAV — Glassmorphism 固定ナビ
+══════════════════════════════════════════ -->
+<header>
+  <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- ロゴ [6] Noto Serif JP -->
+        <a href="#" class="heading-serif text-xl tracking-widest text-white hover:text-g-blue-lt transition-colors">
+          GRAVITY
+        </a>
+
+        <!-- Desktop nav -->
+        <div class="hidden md:flex items-center gap-8">
+          <a href="#technology" class="text-sm text-g-light hover:text-g-blue-lt transition-colors">技術分野</a>
+          <a href="#business"   class="text-sm text-g-light hover:text-g-blue-lt transition-colors">事業領域</a>
+          <a href="#culture"    class="text-sm text-g-light hover:text-g-blue-lt transition-colors">カルチャー</a>
+          <a href="#career"     class="text-sm text-g-light hover:text-g-blue-lt transition-colors">キャリア</a>
+          <a href="#story"      class="text-sm text-g-light hover:text-g-blue-lt transition-colors">社員の声</a>
+        </div>
+
+        <!-- Desktop CTA -->
+        <div class="hidden md:flex items-center gap-3">
+          <a href="https://forms.office.com/pages/responsepage.aspx?id=j1vXkFthPkaUklyzZyutnmcRGHnoM0hEvYrux3jP0i5URFhNM1BMUDZPNVE5UFBGWjVHWTBTQkNVQy4u"
+             target="_blank" rel="noopener" class="btn-ghost text-sm py-2 px-4">
+            カジュアル面談
+          </a>
+          <a href="https://forms.office.com/pages/responsepage.aspx?id=j1vXkFthPkaUklyzZyutnmcRGHnoM0hEvYrux3jP0i5UMTA5WlRDSjlQRENDTURLWkpSVUtNSkVUTS4u"
+             target="_blank" rel="noopener" class="btn-primary text-sm py-2 px-4">
+            採用エントリー
+          </a>
+        </div>
+
+        <!-- Mobile hamburger -->
+        <button id="nav-toggle" class="md:hidden text-g-light hover:text-g-blue-lt transition-colors p-2" aria-label="メニューを開く">
+          <svg id="icon-open"  class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="md:hidden overflow-hidden max-h-0 opacity-0 border-t border-white/5" style="background:rgba(9,13,19,0.97); max-height:calc(100vh - 4rem)">
+      <div class="px-4 py-4 flex flex-col gap-4">
+        <a href="#technology" class="text-g-light text-sm py-2 border-b border-white/5">技術分野</a>
+        <a href="#business"   class="text-g-light text-sm py-2 border-b border-white/5">事業領域</a>
+        <a href="#culture"    class="text-g-light text-sm py-2 border-b border-white/5">カルチャー</a>
+        <a href="#career"     class="text-g-light text-sm py-2 border-b border-white/5">キャリア</a>
+        <a href="#story"      class="text-g-light text-sm py-2 border-b border-white/5">社員の声</a>
+        <a href="https://forms.office.com/pages/responsepage.aspx?id=j1vXkFthPkaUklyzZyutnmcRGHnoM0hEvYrux3jP0i5URFhNM1BMUDZPNVE5UFBGWjVHWTBTQkNVQy4u" target="_blank" rel="noopener"
+           class="btn-ghost text-sm text-center mt-2">カジュアル面談</a>
+        <a href="https://forms.office.com/pages/responsepage.aspx?id=j1vXkFthPkaUklyzZyutnmcRGHnoM0hEvYrux3jP0i5UMTA5WlRDSjlQRENDTURLWkpSVUtNSkVUTS4u"
+           target="_blank" rel="noopener" class="btn-primary text-sm justify-center">採用エントリー</a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- ══════════════════════════════════════════
+     MAIN
+══════════════════════════════════════════ -->
+<main>
+
+  <!-- ──────────────────────────────────────
+       SECTION 1: HERO
+       [1] ターゲット表現拡張
+       [2] バッジを微経験者向けに調整
+       [8] ファクト帯をコンパクト化・下部ボーダーで分離
+  ────────────────────────────────────────── -->
+  <section id="hero" class="relative flex flex-col justify-center">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 pt-28 pb-20 md:pt-40 md:pb-32">
+
+      <!-- [2] バッジ：微経験者・キャリアチェンジを前面に -->
+      <div class="fade-up mb-5 flex flex-wrap gap-2">
+        <span class="badge">微経験者歓迎</span>
+        <span class="badge">キャリアチェンジ歓迎</span>
+      </div>
+
+      <!-- [6] Noto Serif JP 見出し。サイズも落ち着かせる -->
+      <h1 class="fade-up heading-serif text-4xl sm:text-5xl md:text-6xl leading-tight mb-5"
+          style="transition-delay:0.1s">
+        ハードウェアが動く瞬間に、<br/>
+        <span style="color:#8fb8ab">関わっている。</span>
+      </h1>
+
+      <p class="fade-up text-base sm:text-lg text-g-light font-body font-light leading-relaxed mb-3 max-w-2xl"
+         style="transition-delay:0.2s">
+        製造業・組込・制御の現場で使われる技術を、長く積み上げる。
+      </p>
+
+      <!-- [1] ターゲット説明を拡張 -->
+      <p class="fade-up text-sm text-g-muted max-w-xl leading-relaxed mb-10"
+         style="transition-delay:0.3s">
+        学生時代や前職で触れた技術を、次の実務経験につなげたい方を継続的に採用しています。
+        微経験者や異分野からのキャリアチェンジなど、基礎を持った方が専門性を積み上げていける環境です。
+      </p>
+
+      <!-- CTA Buttons -->
+      <div class="fade-up flex flex-col sm:flex-row gap-4" style="transition-delay:0.4s">
+        <a href="https://forms.office.com/pages/responsepage.aspx?id=j1vXkFthPkaUklyzZyutnmcRGHnoM0hEvYrux3jP0i5UMTA5WlRDSjlQRENDTURLWkpSVUtNSkVUTS4u"
+           target="_blank" rel="noopener" class="btn-primary text-base">
+          まずエントリーする
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </a>
+        <a href="https://forms.office.com/pages/responsepage.aspx?id=j1vXkFthPkaUklyzZyutnmcRGHnoM0hEvYrux3jP0i5URFhNM1BMUDZPNVE5UFBGWjVHWTBTQkNVQy4u"
+           target="_blank" rel="noopener" class="btn-ghost text-base">
+          話だけ聞いてみる（カジュアル面談）
+        </a>
+      </div>
+
+      <!-- [8] ファクト帯：上ボーダーで分離、色を落として存在感を抑制 -->
+      <div class="fade-up mt-14 pt-8 border-t border-white/5 flex flex-wrap gap-8 sm:gap-12"
+           style="transition-delay:0.5s">
+        <div>
+          <div class="section-label mb-1">設立</div>
+          <div class="font-body font-bold text-xl text-g-light">2007年</div>
+        </div>
+        <div>
+          <div class="section-label mb-1">技術領域</div>
+          <div class="font-body font-bold text-xl text-g-light">9分野</div>
+        </div>
+        <div>
+          <div class="section-label mb-1">事業領域</div>
+          <div class="font-body font-bold text-xl text-g-light">3領域</div>
+        </div>
+        <div>
+          <div class="section-label mb-1">全国拠点</div>
+          <div class="font-body font-bold text-xl text-g-light">4拠点</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-35">
+      <span class="section-label">scroll</span>
+      <div class="w-px h-8 bg-g-blue" style="animation:pulse 2s infinite"></div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ──────────────────────────────────────
+       SECTION 2: 魅力3点
+  ────────────────────────────────────────── -->
+  <section id="appeal" class="py-20 md:py-28" style="background:linear-gradient(180deg,#07110e 0%,#0b1a17 100%)">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+
+      <div class="fade-up mb-12">
+        <div class="section-label mb-2">Why Gravity</div>
+        <div class="accent-line"></div>
+        <h2 class="heading-serif text-2xl sm:text-3xl md:text-4xl">
+          グラビティで働くということ
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <div class="card p-6 md:p-8 fade-up" style="transition-delay:0.05s">
+          <div class="text-3xl mb-4">⚙️</div>
+          <div class="section-label mb-2">01</div>
+          <h3 class="text-white font-bold text-base mb-3">現場で使われる技術だけを扱う</h3>
+          <p class="text-g-muted text-sm leading-relaxed">
+            製造業の最前線で実際に動く技術領域──組込・制御・ハードウェアに特化。
+            身につけた技術は、現場で確実に機能する。
+          </p>
+        </div>
+
+        <div class="card p-6 md:p-8 fade-up" style="transition-delay:0.12s">
+          <div class="text-3xl mb-4">📈</div>
+          <div class="section-label mb-2">02</div>
+          <h3 class="text-white font-bold text-base mb-3">長く積み上がるキャリア設計</h3>
+          <p class="text-g-muted text-sm leading-relaxed">
+            単発で消費されるスキルではなく、長期プロジェクトを通じて技術が体系化される。
+            3年後・5年後に「何ができるか」が明確に描ける。
+          </p>
+        </div>
+
+        <div class="card p-6 md:p-8 fade-up" style="transition-delay:0.2s">
+          <div class="text-3xl mb-4">🎓</div>
+          <div class="section-label mb-2">03</div>
+          <h3 class="text-white font-bold text-base mb-3">着実に力がつく環境</h3>
+          <p class="text-g-muted text-sm leading-relaxed">
+            OJT・社内研修・資格取得支援・書籍購入補助を通じて、
+            経験が浅い段階から実務に必要な知識を整理しながら積み上げていける。
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ──────────────────────────────────────
+       SECTION 3: 技術分野
+       [7] ゴールドtag削除 → 短い実務説明に置き換え
+  ────────────────────────────────────────── -->
+  <section id="technology" class="py-20 md:py-28 grid-texture" style="background:#07110e">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+
+      <div class="fade-up mb-12">
+        <div class="section-label mb-2">Technology</div>
+        <div class="accent-line"></div>
+        <h2 class="heading-serif text-2xl sm:text-3xl md:text-4xl mb-2">
+          9つの技術領域
+        </h2>
+        <p class="text-g-muted text-sm max-w-xl">
+          製造業の設計から量産まで、現場で求められる領域に着実に向き合う。
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+        <!-- [7] ゴールドタグ廃止・各カードに短い実務説明のみ -->
+        <div class="card p-5 fade-up" style="transition-delay:0.00s">
+          <div class="text-2xl mb-3">🔌</div>
+          <h3 class="text-white font-bold text-sm mb-2">エンベデッド・制御</h3>
+          <p class="text-g-muted text-xs leading-relaxed">
+            マイコン・RTOS・ファームウェア開発。製品の挙動そのものをコードで設計する、ハードに近い領域。
+          </p>
+        </div>
+
+        <div class="card p-5 fade-up" style="transition-delay:0.06s">
+          <div class="text-2xl mb-3">🖥️</div>
+          <h3 class="text-white font-bold text-sm mb-2">ハードウェア</h3>
+          <p class="text-g-muted text-xs leading-relaxed">
+            回路設計・基板設計・電気系開発。製品の根幹となる回路を設計し、実動作まで確認する。
+          </p>
+        </div>
+
+        <div class="card p-5 fade-up" style="transition-delay:0.12s">
+          <div class="text-2xl mb-3">💾</div>
+          <h3 class="text-white font-bold text-sm mb-2">セミコンダクタ</h3>
+          <p class="text-g-muted text-xs leading-relaxed">
+            半導体設計・検証。車載・医療機器向けチップの動作を保証する精度が問われる仕事。
+          </p>
+        </div>
+
+        <div class="card p-5 fade-up" style="transition-delay:0.18s">
+          <div class="text-2xl mb-3">🔩</div>
+          <h3 class="text-white font-bold text-sm mb-2">メカニカル</h3>
+          <p class="text-g-muted text-xs leading-relaxed">
+            機構設計・CAD・解析。製品の形と動きを決める設計領域。
+          </p>
+        </div>
+
+        <div class="card p-5 fade-up" style="transition-delay:0.24s">
+          <div class="text-2xl mb-3">🗂️</div>
+          <h3 class="text-white font-bold text-sm mb-2">PLMソリューション</h3>
+          <p class="text-g-muted text-xs leading-relaxed">
+            製品ライフサイクル管理。Windchill・Teamcenter等の導入・運用支援。
+          </p>
+        </div>
+
+        <div class="card p-5 fade-up" style="transition-delay:0.30s">
+          <div class="text-2xl mb-3">🤖</div>
+          <h3 class="text-white font-bold text-sm mb-2">AI</h3>
+          <p class="text-g-muted text-xs leading-relaxed">
+            製造業向け画像診断AI・深層学習。検査工程や品質管理の自動化を担う。
+          </p>
+        </div>
+
+        <div class="card p-5 fade-up" style="transition-delay:0.36s">
+          <div class="text-2xl mb-3">☁️</div>
+          <h3 class="text-white font-bold text-sm mb-2">クラウド</h3>
+          <p class="text-g-muted text-xs leading-relaxed">
+            AWS・Azureを活用した製造系システムのクラウド化・インフラ設計。
+          </p>
+        </div>
+
+        <div class="card p-5 fade-up" style="transition-delay:0.42s">
+          <div class="text-2xl mb-3">🖱️</div>
+          <h3 class="text-white font-bold text-sm mb-2">フロントエンド</h3>
+          <p class="text-g-muted text-xs leading-relaxed">
+            製造業向けWebアプリ・管理画面開発。React・Vue等を使った業務システムUI。
+          </p>
+        </div>
+
+        <div class="card p-5 fade-up" style="transition-delay:0.48s">
+          <div class="text-2xl mb-3">📱</div>
+          <h3 class="text-white font-bold text-sm mb-2">スマホアプリ</h3>
+          <p class="text-g-muted text-xs leading-relaxed">
+            iOS・Android対応のネイティブ/クロスプラットフォーム開発。
+          </p>
+        </div>
+
+      </div>
+
+      <div class="mt-8 fade-up">
+        <a href="https://www.e-gravity.co.jp/technology/" target="_blank" rel="noopener"
+           class="text-g-blue-lt text-sm font-mono hover:underline">技術分野の詳細を見る →</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ──────────────────────────────────────
+       SECTION 4: 事業領域
+  ────────────────────────────────────────── -->
+  <section id="business" class="py-20 md:py-28" style="background:#0b1a17">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+
+      <div class="fade-up mb-12">
+        <div class="section-label mb-2">Business Domain</div>
+        <div class="accent-line"></div>
+        <h2 class="heading-serif text-2xl sm:text-3xl md:text-4xl mb-2">
+          3つの事業領域
+        </h2>
+        <p class="text-g-muted text-sm max-w-xl">
+          クルマ・医療・産業機器。社会インフラを支える製品の開発に、直接関わる。
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <div class="card overflow-hidden fade-up" style="transition-delay:0.05s">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80"
+               alt="Mobility" class="domain-img" />
+          <div class="p-6">
+            <div class="section-label mb-2">Mobility</div>
+            <h3 class="text-white font-bold text-base mb-2">自動車・モビリティ</h3>
+            <p class="text-g-muted text-xs leading-relaxed mb-4">
+              自動車ECU・ADAS・コネクテッドカー。車が安全に走るための技術を支える。
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="tech-tag">組込</span>
+              <span class="tech-tag">制御</span>
+              <span class="tech-tag">ハード</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card overflow-hidden fade-up" style="transition-delay:0.12s">
+          <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=600&q=80"
+               alt="Life Science" class="domain-img" />
+          <div class="p-6">
+            <div class="section-label mb-2">Life Science</div>
+            <h3 class="text-white font-bold text-base mb-2">医療・ライフサイエンス</h3>
+            <p class="text-g-muted text-xs leading-relaxed mb-4">
+              医療機器・画像診断装置・化粧品開発支援。精度が命の領域。
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="tech-tag">AI</span>
+              <span class="tech-tag">セミコンダクタ</span>
+              <span class="tech-tag">制御</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card overflow-hidden fade-up" style="transition-delay:0.2s">
+          <img src="https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=600&q=80"
+               alt="Manufacture" class="domain-img" />
+          <div class="p-6">
+            <div class="section-label mb-2">Manufacture</div>
+            <h3 class="text-white font-bold text-base mb-2">製造・産業機器</h3>
+            <p class="text-g-muted text-xs leading-relaxed mb-4">
+              FA機器・検査装置・ロボット。工場が止まらないための技術開発。
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="tech-tag">エンベデッド</span>
+              <span class="tech-tag">メカニカル</span>
+              <span class="tech-tag">PLM</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ──────────────────────────────────────
+       SECTION 5: 組織文化
+  ────────────────────────────────────────── -->
+  <section id="culture" class="py-20 md:py-28" style="background:#07110e">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+
+      <div class="fade-up mb-12">
+        <div class="section-label mb-2">Culture</div>
+        <div class="accent-line"></div>
+        <h2 class="heading-serif text-2xl sm:text-3xl md:text-4xl mb-2">
+          技術集団のカルチャー
+        </h2>
+        <p class="text-g-muted text-sm max-w-xl">派手ではない。でも本質的に成長できる環境がある。</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+
+        <div class="space-y-5">
+          <div class="card p-5 flex gap-4 fade-up" style="transition-delay:0.05s">
+            <div class="text-2xl flex-shrink-0">🧱</div>
+            <div>
+              <h3 class="text-white font-bold text-sm mb-1">本質を積み上げる</h3>
+              <p class="text-g-muted text-sm leading-relaxed">
+                流行の技術ではなく、製造業の現場で10年後も通じる本質的な技術に集中する。
+              </p>
+            </div>
+          </div>
+          <div class="card p-5 flex gap-4 fade-up" style="transition-delay:0.12s">
+            <div class="text-2xl flex-shrink-0">🤝</div>
+            <div>
+              <h3 class="text-white font-bold text-sm mb-1">孤立しない現場</h3>
+              <p class="text-g-muted text-sm leading-relaxed">
+                ひとり現場でも営業とリーダーが定期フォロー。技術的な壁を一人で抱えなくていい体制。
+              </p>
+            </div>
+          </div>
+          <div class="card p-5 flex gap-4 fade-up" style="transition-delay:0.2s">
+            <div class="text-2xl flex-shrink-0">🔬</div>
+            <div>
+              <h3 class="text-white font-bold text-sm mb-1">継続が力になる</h3>
+              <p class="text-g-muted text-sm leading-relaxed">
+                長期プロジェクトに腰を据えて関わることで、スキルが体系として積み上がっていく。
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="fade-up" style="transition-delay:0.1s">
+          <div class="card p-8" style="background:linear-gradient(135deg,rgba(24,52,45,0.62),rgba(143,184,171,0.05))">
+            <div class="heading-serif text-4xl mb-4 opacity-20" style="color:#8fb8ab">"</div>
+            <blockquote class="text-g-light text-base leading-relaxed mb-6">
+              お客様と共に先端技術を追い続けるブレインとして、
+              未知なる価値を創造し続ける。
+              それがグラビティの存在意義です。
+            </blockquote>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-g-steel flex items-center justify-content-center text-g-blue-lt font-body font-bold text-sm flex items-center justify-center">G</div>
+              <div>
+                <div class="text-white text-sm font-bold">代表メッセージ</div>
+                <a href="https://www.e-gravity.co.jp/company#top-message" target="_blank" rel="noopener"
+                   class="text-g-blue-lt text-xs hover:underline">詳細を読む →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ──────────────────────────────────────
+       SECTION 6: 福利厚生・数値
+  ────────────────────────────────────────── -->
+  <section id="benefits" class="py-20 md:py-28 grid-texture" style="background:#0b1a17">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+
+      <div class="fade-up mb-12">
+        <div class="section-label mb-2">Benefits & Environment</div>
+        <div class="accent-line"></div>
+        <h2 class="heading-serif text-2xl sm:text-3xl md:text-4xl mb-2">
+          数字で見るGravityの働き方
+        </h2>
+        <p class="text-g-muted text-sm">抽象的な言葉ではなく、実績値で示す。</p>
+      </div>
+
+      <!-- Stat cards [6] num-big → Noto Serif JP -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+        <div class="stat-card p-5 text-center fade-up" style="transition-delay:0.00s">
+          <div class="num-big">120<span class="text-base text-g-muted" style="font-family:'Noto Sans JP'">日+</span></div>
+          <div class="text-g-muted text-xs mt-2 font-mono">年間休日</div>
+        </div>
+        <div class="stat-card p-5 text-center fade-up" style="transition-delay:0.08s">
+          <div class="num-big">4</div>
+          <div class="text-g-muted text-xs mt-2 font-mono">全国拠点数</div>
+        </div>
+        <div class="stat-card p-5 text-center fade-up" style="transition-delay:0.16s">
+          <div class="num-big">0<span class="text-base text-g-muted" style="font-family:'Noto Sans JP'">円</span></div>
+          <div class="text-g-muted text-xs mt-2 font-mono">資格取得費用<br/>（会社負担制度あり）</div>
+        </div>
+        <div class="stat-card p-5 text-center fade-up" style="transition-delay:0.24s">
+          <div class="num-big text-2xl">申請制</div>
+          <div class="text-g-muted text-xs mt-2 font-mono">書籍購入補助<br/>（業務・学習に応じて）</div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div class="card p-4 flex items-center gap-3 fade-up" style="transition-delay:0.00s">
+          <div class="text-g-blue">✓</div><span class="text-g-light text-sm">社会保険完備（健・厚・雇・労）</span>
+        </div>
+        <div class="card p-4 flex items-center gap-3 fade-up" style="transition-delay:0.05s">
+          <div class="text-g-blue">✓</div><span class="text-g-light text-sm">退職金制度（中小企業退職金共済）</span>
+        </div>
+        <div class="card p-4 flex items-center gap-3 fade-up" style="transition-delay:0.10s">
+          <div class="text-g-blue">✓</div><span class="text-g-light text-sm">資格取得支援（会社負担制度あり）</span>
+        </div>
+        <div class="card p-4 flex items-center gap-3 fade-up" style="transition-delay:0.15s">
+          <div class="text-g-blue">✓</div><span class="text-g-light text-sm">書籍購入補助</span>
+        </div>
+        <div class="card p-4 flex items-center gap-3 fade-up" style="transition-delay:0.20s">
+          <div class="text-g-blue">✓</div><span class="text-g-light text-sm">定期的なキャリア面談</span>
+        </div>
+        <div class="card p-4 flex items-center gap-3 fade-up" style="transition-delay:0.25s">
+          <div class="text-g-blue">✓</div><span class="text-g-light text-sm">社内勉強会・外部研修サポート</span>
+        </div>
+        <div class="card p-4 flex items-center gap-3 fade-up" style="transition-delay:0.30s">
+          <div class="text-g-blue">✓</div><span class="text-g-light text-sm">交通費全額支給</span>
+        </div>
+        <div class="card p-4 flex items-center gap-3 fade-up" style="transition-delay:0.35s">
+          <div class="text-g-blue">✓</div><span class="text-g-light text-sm">リモートワーク対応（案件による）</span>
+        </div>
+        <div class="card p-4 flex items-center gap-3 fade-up" style="transition-delay:0.40s">
+          <div class="text-g-blue">✓</div><span class="text-g-light text-sm">東京・横浜・広島・沖縄 4拠点</span>
+        </div>
+      </div>
+
+      <div class="mt-8 fade-up">
+        <a href="https://www.e-gravity.co.jp/recruit/working-environment/" target="_blank" rel="noopener"
+           class="text-g-blue-lt text-sm font-mono hover:underline">働く環境の詳細を見る →</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ──────────────────────────────────────
+       SECTION 7: キャリアパス
+       [3] 1年目・3年目・5年目・10年目に再設計
+  ────────────────────────────────────────── -->
+  <section id="career" class="py-20 md:py-28" style="background:#07110e">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+
+      <div class="fade-up mb-12">
+        <div class="section-label mb-2">Career Path</div>
+        <div class="accent-line"></div>
+        <h2 class="heading-serif text-2xl sm:text-3xl md:text-4xl mb-2">
+          入社から10年間のイメージ
+        </h2>
+        <p class="text-g-muted text-sm max-w-xl">
+          微経験や隣接領域からの転身でも、任される範囲は段階的に広がっていく。
+          1・3・5・10年目の姿を具体的に描ける。
+        </p>
+      </div>
+
+      <div class="max-w-2xl space-y-12">
+
+        <!-- 1年目 -->
+        <div class="timeline-step fade-up" style="transition-delay:0.05s">
+          <div class="section-label mb-1">1年目</div>
+          <h3 class="heading-serif text-lg mb-3">研修・基礎固め・初案件アサイン</h3>
+          <div class="card p-5">
+            <ul class="space-y-2 text-sm text-g-muted">
+              <li class="flex gap-2"><span class="text-g-blue">▸</span> 導入研修と技術基礎のキャッチアップ</li>
+              <li class="flex gap-2"><span class="text-g-blue">▸</span> 先輩エンジニアによるOJT・コードレビュー</li>
+              <li class="flex gap-2"><span class="text-g-blue">▸</span> 実装・評価・テストなど、担当範囲を限定した実務から着手</li>
+              <li class="flex gap-2"><span class="text-g-blue">▸</span> 定期面談でキャリア方向性の初期設計</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 3年目 -->
+        <div class="timeline-step fade-up" style="transition-delay:0.12s">
+          <div class="section-label mb-1">3年目</div>
+          <h3 class="heading-serif text-lg mb-3">独立作業・専門性の確立</h3>
+          <div class="card p-5">
+            <ul class="space-y-2 text-sm text-g-muted">
+              <li class="flex gap-2"><span class="text-g-blue">▸</span> 単独での設計・実装・テストを担当</li>
+              <li class="flex gap-2"><span class="text-g-blue">▸</span> 担当技術領域の資格取得や学習支援を活用</li>
+              <li class="flex gap-2"><span class="text-g-blue">▸</span> 社内勉強会への参加・登壇開始</li>
+              <li class="flex gap-2"><span class="text-g-blue">▸</span> 長期プロジェクトで一工程を継続して任される</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 5年目 -->
+        <div class="timeline-step fade-up" style="transition-delay:0.20s">
+          <div class="section-label mb-1">5年目</div>
+          <h3 class="heading-serif text-lg mb-3">サブリーダー・横断的な技術力</h3>
+          <div class="card p-5">
+            <ul class="space-y-2 text-sm text-g-muted">
+              <li class="flex gap-2"><span class="text-g-blue">▸</span> チームのサブリーダーとして進行や品質面も担う</li>
+              <li class="flex gap-2"><span class="text-g-blue">▸</span> 複数技術領域にまたがる設計経験</li>
+              <li class="flex gap-2"><span class="text-g-blue">▸</span> 上位資格の取得・対外的な技術力の証明</li>
+              <li class="flex gap-2"><span class="text-g-blue">▸</span> キャリア再設計（専門深化 or 領域拡張）</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 10年目 -->
+        <div class="timeline-step fade-up" style="transition-delay:0.28s">
+          <div class="section-label mb-1">10年目</div>
+          <h3 class="heading-serif text-lg mb-3">技術リーダー・組織への貢献</h3>
+          <div class="card p-5">
+            <ul class="space-y-2 text-sm text-g-muted">
+              <li class="flex gap-2"><span class="text-g-blue">▸</span> プロジェクトリーダーとして体制や進め方の設計にも関わる</li>
+              <li class="flex gap-2"><span class="text-g-blue">▸</span> 社内技術標準の策定・ナレッジ共有の推進</li>
+              <li class="flex gap-2"><span class="text-g-blue">▸</span> 採用・後進支援への関与（組織を次世代に繋ぐ）</li>
+              <li class="flex gap-2"><span class="text-g-blue">▸</span> 特定領域の第一人者としての社内ポジション</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="mt-10 fade-up">
+        <a href="https://www.e-gravity.co.jp/recruit/careerpath/" target="_blank" rel="noopener"
+           class="text-g-blue-lt text-sm font-mono hover:underline">キャリアパス詳細を見る →</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ──────────────────────────────────────
+       SECTION 8: 社員ストーリー
+       [9] 前職→最初の壁→転換点→現在 の4段構成
+       [2] バッジ訴求廃止・経歴と成長の文脈で表現
+  ────────────────────────────────────────── -->
+  <section id="story" class="py-20 md:py-28" style="background:#0b1a17">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+
+      <div class="fade-up mb-12">
+        <div class="section-label mb-2">Engineers' Voice</div>
+        <div class="accent-line"></div>
+        <h2 class="heading-serif text-2xl sm:text-3xl md:text-4xl mb-2">
+          エンジニアのリアルな声
+        </h2>
+        <p class="text-g-muted text-sm">前職・最初の壁・任されるようになった転換点。そのままを聞きました。</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <!-- Story 1 [9] 4段構成 -->
+        <div class="card p-6 fade-up" style="transition-delay:0.05s">
+          <div class="flex items-center gap-4 mb-5">
+            <div class="photo-placeholder">A</div>
+            <div>
+              <div class="text-white font-bold text-sm">Aさん</div>
+              <div class="text-g-muted text-xs">入社3年目 / エンベデッド・制御</div>
+            </div>
+          </div>
+          <div class="space-y-3 text-xs text-g-muted">
+            <div>
+              <div class="story-stage">前職</div>
+              <p>情報系の専門学校卒業後、運用監視とテスト補助を担当。より機器に近い開発に関わりたくて転職した。</p>
+            </div>
+            <div>
+              <div class="story-stage">最初の壁</div>
+              <p>入社直後はCの基礎知識が実務にどうつながるか分からず、研修で毎日詰まった。先輩に質問するのが怖かった時期もあった。</p>
+            </div>
+            <div>
+              <div class="story-stage">転換点</div>
+              <p>1年半後、初めて自分が書いたコードで機器が動いた瞬間。「これが自分の仕事になった」と思った。</p>
+            </div>
+            <div>
+              <div class="story-stage">現在</div>
+              <p class="text-g-light">車載センサーの制御ファームを単独で担当。後輩のコードレビューも始めた。</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Story 2 -->
+        <div class="card p-6 fade-up" style="transition-delay:0.12s">
+          <div class="flex items-center gap-4 mb-5">
+            <div class="photo-placeholder">B</div>
+            <div>
+              <div class="text-white font-bold text-sm">Bさん</div>
+              <div class="text-g-muted text-xs">入社5年目 / セミコンダクタ</div>
+            </div>
+          </div>
+          <div class="space-y-3 text-xs text-g-muted">
+            <div>
+              <div class="story-stage">前職</div>
+              <p>文系大学卒業後、製造業向け機器の営業サポートを3年経験。評価結果に触れるうち、ものづくりの中身に踏み込みたくて転職した。</p>
+            </div>
+            <div>
+              <div class="story-stage">最初の壁</div>
+              <p>仕様書は読めても、半導体検証の観点は最初ほとんど分からなかった。研修で配られた教材を毎晩読み返し、理解に半年ほどかかった。</p>
+            </div>
+            <div>
+              <div class="story-stage">転換点</div>
+              <p>自分が検証したチップが製品に採用された報告を受けたとき。「社会に届いた」と感じた。</p>
+            </div>
+            <div>
+              <div class="story-stage">現在</div>
+              <p class="text-g-light">車載チップの動作検証を一人で回している。来年は検証リーダーを打診されている。</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Story 3 -->
+        <div class="card p-6 fade-up" style="transition-delay:0.2s">
+          <div class="flex items-center gap-4 mb-5">
+            <div class="photo-placeholder">C</div>
+            <div>
+              <div class="text-white font-bold text-sm">Cさん</div>
+              <div class="text-g-muted text-xs">入社2年目 / ハードウェア</div>
+            </div>
+          </div>
+          <div class="space-y-3 text-xs text-g-muted">
+            <div>
+              <div class="story-stage">前職</div>
+              <p>理系大学院卒業後、別業種のソフト会社に就職。回路設計に興味があり、ソフト側の経験を生かしてハード寄りにキャリアチェンジした。</p>
+            </div>
+            <div>
+              <div class="story-stage">最初の壁</div>
+              <p>CADの操作から始まり、回路を読む実務の勘所はまだ薄かった。最初の3ヶ月は「自分に向いているのか」と悩んだ。</p>
+            </div>
+            <div>
+              <div class="story-stage">転換点</div>
+              <p>先輩から「わからないことはわからないと言っていい」と言われたこと。そこから質問できるようになった。</p>
+            </div>
+            <div>
+              <div class="story-stage">現在</div>
+              <p class="text-g-light">FA機器向け基板の部分設計を担当。回路図を自分の言葉で説明できるようになってきた。</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="mt-8 fade-up text-center">
+        <a href="https://www.e-gravity.co.jp/recruit/staff-interview/" target="_blank" rel="noopener"
+           class="text-g-blue-lt text-sm font-mono hover:underline">社員インタビュー一覧を見る →</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ──────────────────────────────────────
+       SECTION 9: CTA
+       [1] ターゲット文言を拡張
+  ────────────────────────────────────────── -->
+  <section id="cta" class="py-24 md:py-36 relative overflow-hidden"
+           style="background:linear-gradient(160deg,#07110e 0%,#0b1a17 50%,#07110e 100%)">
+
+    <div class="absolute inset-0 grid-texture opacity-30 pointer-events-none"></div>
+
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 relative text-center">
+
+      <div class="fade-up">
+        <div class="section-label mb-4">Join Us</div>
+        <h2 class="heading-serif text-3xl sm:text-4xl md:text-5xl mb-4">
+          まず話してみませんか
+        </h2>
+        <!-- [1] 微経験・キャリアチェンジを明示 -->
+        <p class="text-g-muted text-sm sm:text-base max-w-xl mx-auto leading-relaxed mb-12">
+          カジュアル面談は選考ではなく、仕事内容や今後の方向性を確認する場です。<br/>
+          応募意思が固まっている方はエントリーへ、まだ迷っている方は相談導線も使えます。
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
+
+        <div class="card cta-card-subtle p-6 md:p-8 text-center fade-up"
+             style="transition-delay:0.08s">
+          <div class="cta-icon mb-3">TALK</div>
+          <h3 class="text-white font-bold text-base mb-2">カジュアル面談</h3>
+          <p class="text-g-muted text-xs mb-5 leading-relaxed">
+            仕事内容や働き方を先に確認したい方向け<br/>選考なし｜約30分｜オンライン対応可
+          </p>
+          <a href="https://forms.office.com/pages/responsepage.aspx?id=j1vXkFthPkaUklyzZyutnmcRGHnoM0hEvYrux3jP0i5URFhNM1BMUDZPNVE5UFBGWjVHWTBTQkNVQy4u"
+             target="_blank" rel="noopener" class="btn-ghost w-full justify-center text-sm">
+            話だけ聞いてみる
+          </a>
+        </div>
+
+        <div class="card cta-card-strong p-6 md:p-8 text-center fade-up"
+             style="transition-delay:0.16s">
+          <div class="cta-icon mb-3">ENTRY</div>
+          <h3 class="text-white font-bold text-base mb-2">採用エントリー</h3>
+          <p class="text-g-muted text-xs mb-5 leading-relaxed">
+            応募意思が固まっている方向け<br/>微経験・キャリアチェンジ採用を随時受付
+          </p>
+          <a href="https://forms.office.com/pages/responsepage.aspx?id=j1vXkFthPkaUklyzZyutnmcRGHnoM0hEvYrux3jP0i5UMTA5WlRDSjlQRENDTURLWkpSVUtNSkVUTS4u"
+             target="_blank" rel="noopener" class="btn-primary w-full justify-center text-sm">
+            まずエントリーする
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </a>
+        </div>
+
+      </div>
+
+      <div class="mt-10 flex flex-wrap justify-center gap-x-6 gap-y-3 text-sm fade-up" style="transition-delay:0.24s">
+        <a href="https://www.e-gravity.co.jp/job-information/"   target="_blank" rel="noopener" class="text-g-muted hover:text-g-blue-lt transition-colors">募集要項を確認する</a>
+        <a href="https://www.e-gravity.co.jp/recruit/education/" target="_blank" rel="noopener" class="text-g-muted hover:text-g-blue-lt transition-colors">教育制度を確認する</a>
+        <a href="https://www.e-gravity.co.jp/contact/"           target="_blank" rel="noopener" class="text-g-muted hover:text-g-blue-lt transition-colors">採用について相談する</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ══════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════ -->
+<footer>
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-14 md:py-16">
+    <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,2.05fr)] gap-10 md:gap-12 mb-12">
+
+      <div class="lg:pr-6">
+        <div class="heading-serif text-lg text-white tracking-widest mb-3">GRAVITY</div>
+        <p class="text-g-muted text-xs leading-relaxed mb-5 max-w-sm">
+          製造業・組込・制御・ハードウェア領域に特化した技術集団。
+          先端技術を追い続け、社会課題を解決する。
+        </p>
+        <a href="https://www.e-gravity.co.jp/news/" target="_blank" rel="noopener" class="badge text-xs mb-8">NOTE</a>
+
+        <div class="pt-6 border-t border-white/10">
+          <div class="section-label mb-3">Offices</div>
+          <div class="text-xs text-g-muted space-y-1.5">
+            <div>東京（本社）港区浜松町2-7-15</div>
+            <div>横浜 / 広島 / 沖縄</div>
+            <div class="text-g-blue-lt pt-1">TEL: 03-5425-2470</div>
+          </div>
+        </div>
+      </div>
+
+      <nav aria-label="Footer sitemap" class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-5 gap-4 md:gap-5">
+        <section class="rounded-lg border border-white/10 bg-white/[0.03] px-4 py-5">
+          <div class="section-label mb-3">About</div>
+          <h3 class="text-white text-sm font-bold mb-4">グラビティについて</h3>
+          <ul class="space-y-3 text-sm text-g-muted">
+            <li><a href="https://www.e-gravity.co.jp/company/" target="_blank" rel="noopener" class="hover:text-g-blue-lt transition-colors">会社概要</a></li>
+            <li><a href="#business" class="hover:text-g-blue-lt transition-colors">事業内容</a></li>
+          </ul>
+        </section>
+
+        <section class="rounded-lg border border-white/10 bg-white/[0.03] px-4 py-5">
+          <div class="section-label mb-3">Work</div>
+          <h3 class="text-white text-sm font-bold mb-4">どんな仕事か</h3>
+          <ul class="space-y-3 text-sm text-g-muted">
+            <li><a href="https://www.e-gravity.co.jp/job-information/" target="_blank" rel="noopener" class="hover:text-g-blue-lt transition-colors">職種紹介</a></li>
+            <li><a href="#appeal" class="hover:text-g-blue-lt transition-colors">プロジェクトの特徴</a></li>
+            <li><a href="#technology" class="hover:text-g-blue-lt transition-colors">技術領域</a></li>
+          </ul>
+        </section>
+
+        <section class="rounded-lg border border-white/10 bg-white/[0.03] px-4 py-5">
+          <div class="section-label mb-3">Growth</div>
+          <h3 class="text-white text-sm font-bold mb-4">成長を知る</h3>
+          <ul class="space-y-3 text-sm text-g-muted">
+            <li><a href="https://www.e-gravity.co.jp/recruit/education/" target="_blank" rel="noopener" class="hover:text-g-blue-lt transition-colors">入社後の流れ</a></li>
+            <li><a href="#career" class="hover:text-g-blue-lt transition-colors">できるようになること</a></li>
+            <li><a href="https://www.e-gravity.co.jp/recruit/careerpath/" target="_blank" rel="noopener" class="hover:text-g-blue-lt transition-colors">キャリアの広がり</a></li>
+          </ul>
+        </section>
+
+        <section class="rounded-lg border border-white/10 bg-white/[0.03] px-4 py-5">
+          <div class="section-label mb-3">Style</div>
+          <h3 class="text-white text-sm font-bold mb-4">働き方を知る</h3>
+          <ul class="space-y-3 text-sm text-g-muted">
+            <li><a href="https://www.e-gravity.co.jp/recruit/working-environment/" target="_blank" rel="noopener" class="hover:text-g-blue-lt transition-colors">働き方の特徴</a></li>
+            <li><a href="#culture" class="hover:text-g-blue-lt transition-colors">長く働ける理由</a></li>
+            <li><a href="https://www.e-gravity.co.jp/recruit/staff-interview/" target="_blank" rel="noopener" class="hover:text-g-blue-lt transition-colors">社員の声</a></li>
+          </ul>
+        </section>
+
+        <section class="rounded-lg border border-white/10 bg-white/[0.03] px-4 py-5">
+          <div class="section-label mb-3">Entry</div>
+          <h3 class="text-white text-sm font-bold mb-4">相談・応募</h3>
+          <ul class="space-y-3 text-sm text-g-muted">
+            <li><a href="https://forms.office.com/pages/responsepage.aspx?id=j1vXkFthPkaUklyzZyutnmcRGHnoM0hEvYrux3jP0i5URFhNM1BMUDZPNVE5UFBGWjVHWTBTQkNVQy4u" target="_blank" rel="noopener" class="hover:text-g-blue-lt transition-colors">カジュアル面談</a></li>
+            <li><a href="https://forms.office.com/pages/responsepage.aspx?id=j1vXkFthPkaUklyzZyutnmcRGHnoM0hEvYrux3jP0i5UMTA5WlRDSjlQRENDTURLWkpSVUtNSkVUTS4u" target="_blank" rel="noopener" class="hover:text-g-blue-lt transition-colors">エントリー</a></li>
+          </ul>
+        </section>
+      </nav>
+    </div>
+
+    <div class="section-divider mb-6"></div>
+
+    <div class="flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-g-muted">
+      <span>© 2024 Gravity Corp. All rights reserved.</span>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="https://www.e-gravity.co.jp/privacy-policy/" target="_blank" rel="noopener" class="hover:text-g-blue-lt transition-colors">個人情報保護方針</a>
+        <a href="https://www.e-gravity.co.jp/compliance/"     target="_blank" rel="noopener" class="hover:text-g-blue-lt transition-colors">コンプライアンス</a>
+        <a href="https://www.e-gravity.co.jp/sitemap/"        target="_blank" rel="noopener" class="hover:text-g-blue-lt transition-colors">サイトマップ</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ══════════════════════════════════════════
+     JAVASCRIPT
+══════════════════════════════════════════ -->
+<script>
+  // ─── Mobile nav toggle ─────────────────────
+  const toggle    = document.getElementById('nav-toggle');
+  const menu      = document.getElementById('mobile-menu');
+  const iconOpen  = document.getElementById('icon-open');
+  const iconClose = document.getElementById('icon-close');
+  let menuOpen = false;
+
+  toggle.addEventListener('click', () => {
+    menuOpen = !menuOpen;
+    if (menuOpen) {
+      menu.style.maxHeight = 'calc(100vh - 4rem)';
+      menu.style.opacity   = '1';
+      iconOpen.classList.add('hidden');
+      iconClose.classList.remove('hidden');
+    } else {
+      menu.style.maxHeight = '0';
+      menu.style.opacity   = '0';
+      iconOpen.classList.remove('hidden');
+      iconClose.classList.add('hidden');
+    }
+  });
+
+  menu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      menuOpen = false;
+      menu.style.maxHeight = '0';
+      menu.style.opacity   = '0';
+      iconOpen.classList.remove('hidden');
+      iconClose.classList.add('hidden');
+    });
+  });
+
+  // ─── Scroll fade-in ────────────────────────
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // ─── Active nav highlight on scroll ────────
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks  = document.querySelectorAll('#main-nav a[href^="#"]');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(sec => {
+      if (window.scrollY >= sec.offsetTop - 100) current = sec.getAttribute('id');
+    });
+    navLinks.forEach(link => {
+      link.style.color = link.getAttribute('href') === '#' + current ? '#8fb8ab' : '';
+    });
+  }, { passive: true });
+</script>
+
+</body>
+</html>
